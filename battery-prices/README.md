@@ -40,7 +40,7 @@ battery-prices/
 ├── assets/og.png           社交分享卡片 1200×630
 ├── data/batteries.json     ⭐ 資料源（39 個型號,9 個平台）
 ├── scripts/update_prices.py 驗證 + CSV 匯出/匯入 + PA-API stub
-└── scripts/build.py        生成 10 版 + sitemap + robots
+└── scripts/build.py        生成 49 版 + sitemap + robots
 ```
 
 ## 點跑
@@ -62,8 +62,10 @@ python3 scripts/build.py --base-url https://yourdomain.com
 ```
 dist/
 ├── index.html              全部 39 個型號
-├── milwaukee-m18/          ← 每個平台一版,獨立 title/description/開場文
-├── dewalt-20v-max/            （共 9 個）
+├── milwaukee-m18/          ← 每個平台一版（共 9 個）
+│   ├── 48-11-1850/         ← 每個型號一版（共 39 個）
+│   └── ...
+├── dewalt-20v-max/
 ├── ...
 ├── assets/og.png
 ├── sitemap.xml
@@ -78,7 +80,8 @@ dist/
 
 | 形式 | 用途 |
 |---|---|
-| `/milwaukee-m18/` | 靜態頁,有獨立 SEO metadata。**發帖用呢個** |
+| `/milwaukee-m18/` | 平台頁,獨立 SEO metadata。**發帖用呢個** |
+| `/milwaukee-m18/48-11-1850/` | 型號頁,食超長尾字（`48-11-1850 watt hours`)。含 JSON-LD |
 | `?p=milwaukee-m18` | 動態篩選,可分享 |
 | `?x=ryobi-one-18v` | 排除式（剔走少數平台時 URL 短好多） |
 | `?sort=price&minAh=5` | 排序同容量篩選都入 URL |

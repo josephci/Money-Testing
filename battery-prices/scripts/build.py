@@ -91,12 +91,106 @@ def intro_html(key: str, st: dict) -> str:
     return '<section class="intro">' + "".join(parts) + "</section>"
 
 
+def battery_metrics(data: dict, b: dict) -> dict:
+    plat = data["platforms"][b["platform"]]
+    per_pack = b["rated_wh"] if b.get("rated_wh") is not None else plat["nominal_volts"] * b["amp_hours"]
+    total_wh = per_pack * b["pack_count"]
+    price = b.get("price")
+    return {
+        "plat": plat,
+        "per_pack_wh": per_pack,
+        "total_wh": total_wh,
+        "per_wh": (price / total_wh) if price else None,
+        "per_ah": (price / (b["amp_hours"] * b["pack_count"])) if price else None,
+    }
+
+
+def model_intro(data: dict, b: dict) -> str:
+    """Opening copy for one battery. Spells out the arithmetic the site exists to do."""
+    m = battery_metrics(data, b)
+    p = m["plat"]
+    name = f"{p['brand']} {b['name']}"
+    packs = f" &times; {b['pack_count']} packs" if b["pack_count"] > 1 else ""
+
+    parts = [
+        f"<h2>{esc(name)} ({esc(b['model'])}) — the real numbers</h2>",
+        f"<p class=\"math\">{p['nominal_volts']}V nominal &times; {b['amp_hours']}Ah{packs} "
+        f"= <strong>{m['total_wh']:g}Wh</strong></p>",
+    ]
+
+    if p["marketing_volts"] != p["nominal_volts"]:
+        parts.append(
+            f"<p>This pack is sold as <strong>{p['marketing_volts']}V {b['amp_hours']}Ah</strong>. "
+            f"That {p['marketing_volts']}V is the peak reading straight off the charger; it settles "
+            f"at {p['nominal_volts']}V for the rest of the discharge, which is the figure the "
+            f"energy calculation uses. {esc(p.get('note', ''))}</p>"
+        )
+
+    if m["per_wh"] is not None:
+        parts.append(
+            f"<p>At <strong>${b['price']:.2f}</strong> that works out to "
+            f"<strong>${m['per_wh']:.3f} per watt-hour</strong> "
+            f"(${m['per_ah']:.2f} per amp-hour).</p>"
+        )
+
+        # Where it sits against its own platform — the comparison a buyer locked
+        # into this battery system actually needs.
+        siblings = [x for x in data["batteries"]
+                    if x["platform"] == b["platform"] and x["id"] != b["id"] and x.get("price")]
+        better = sorted(
+            ((battery_metrics(data, x)["per_wh"], x) for x in siblings),
+            key=lambda t: t[0],
+        )
+        better = [(v, x) for v, x in better if v < m["per_wh"]]
+
+        if not better:
+            parts.append(
+                f"<p><strong>This is the best value in the {esc(p['brand'])} {esc(p['name'])} "
+                f"range</strong> of the {len(siblings) + 1} packs tracked here.</p>"
+            )
+        else:
+            v, x = better[0]
+            pct = (m["per_wh"] - v) / m["per_wh"] * 100
+            parts.append(
+                f"<p>{len(better)} other {esc(p['brand'])} {esc(p['name'])} pack"
+                f"{'s' if len(better) > 1 else ''} give more energy per dollar. The best of them, "
+                f"<strong>{esc(x['name'])}</strong> ({esc(x['model'])}), is "
+                f"<strong>{pct:.0f}% cheaper per watt-hour</strong> at ${v:.3f}/Wh.</p>"
+            )
+
+    return '<section class="intro">' + "".join(parts) + "</section>"
+
+
+def model_jsonld(data: dict, b: dict, url: str) -> str:
+    m = battery_metrics(data, b)
+    p = m["plat"]
+    doc = {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": f"{p['brand']} {b['name']} ({b['model']})",
+        "sku": b["model"],
+        "brand": {"@type": "Brand", "name": p["brand"]},
+        "url": url,
+        "additionalProperty": [
+            {"@type": "PropertyValue", "name": "Capacity", "value": f"{b['amp_hours']}Ah"},
+            {"@type": "PropertyValue", "name": "Nominal voltage", "value": f"{p['nominal_volts']}V"},
+            {"@type": "PropertyValue", "name": "Energy", "value": f"{m['total_wh']:g}Wh"},
+        ],
+    }
+    if b.get("asin"):
+        doc["gtin"] = b["asin"]
+    return ('<script type="application/ld+json">'
+            + json.dumps(doc, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
+            + "</script>")
+
+
 def render(html_src: str, css: str, js: str, data: dict, *, base_url: str,
            path: str, title: str, desc: str, platform: str | None,
-           page_base: str, intro: str) -> str:
+           page_base: str, intro: str, jsonld: str = "") -> str:
     """Inline everything and stamp this page's metadata."""
     out = html_src.replace(
-        '<link rel="stylesheet" href="assets/style.css">', f"<style>\n{css}\n</style>"
+        '<link rel="stylesheet" href="assets/style.css">',
+        f"<style>\n{css}\n</style>" + (f"\n{jsonld}" if jsonld else ""),
     )
 
     out = out.replace(
@@ -196,6 +290,37 @@ def main() -> int:
             encoding="utf-8",
         )
         pages.append(f"/{key}/")
+
+        # One page per model. These target queries nobody else has a page for
+        # — "DCB205 watt hours", "is the HD12.0 worth it" — which is the only
+        # kind of search a brand new domain with no backlinks can win.
+        for b in data["batteries"]:
+            if b["platform"] != key:
+                continue
+            slug = b["model"].lower().replace(" ", "-").replace("/", "-")
+            m = battery_metrics(data, b)
+            mpath = f"/{key}/{slug}/"
+            mtitle = (f"{p['brand']} {b['model']} — {b['amp_hours']}Ah, "
+                      f"{m['total_wh']:g}Wh, cost per watt-hour")
+            mdesc = (f"{p['brand']} {b['name']} ({b['model']}): {p['nominal_volts']}V nominal, "
+                     f"{m['total_wh']:g}Wh")
+            mdesc += (f", ${m['per_wh']:.3f} per watt-hour. See how it compares to every other "
+                      f"{p['brand']} {p['name']} pack." if m["per_wh"] else
+                      f". Compared against every other {p['brand']} {p['name']} pack.")
+
+            md = d / slug
+            md.mkdir()
+            (md / "index.html").write_text(
+                render(
+                    html_src, css, js, data,
+                    base_url=base, path=mpath, title=mtitle, desc=mdesc,
+                    platform=key, page_base="../../",
+                    intro=model_intro(data, b),
+                    jsonld=model_jsonld(data, b, base + mpath),
+                ),
+                encoding="utf-8",
+            )
+            pages.append(mpath)
 
     # Assets referenced by absolute URL (the social card).
     og = ROOT / "assets" / "og.png"

@@ -285,3 +285,14 @@ footer.site p { color: var(--muted); font-size: 0.82rem; margin: 0.5rem 0; max-w
   .controls { padding: 0.7rem; gap: 0.7rem; }
   thead th, tbody td { padding: 0.45rem 0.4rem; }
 }
+
+.intro .math {
+  font-family: var(--mono);
+  font-size: 1rem;
+  background: var(--accent-bg);
+  color: var(--accent);
+  padding: 0.55rem 0.8rem;
+  border-radius: 5px;
+  display: inline-block;
+}
+.intro .math strong { color: var(--accent); }
