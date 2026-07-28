@@ -1,0 +1,4 @@
+battery-prices/dist/
+*.pyc
+__pycache__/
+prices.csv

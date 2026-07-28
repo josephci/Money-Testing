@@ -1,0 +1,124 @@
+{
+  "meta": {
+    "currency": "USD",
+    "price_source": "sample",
+    "generated_at": null,
+    "warning": "SEED DATA — specs are best-effort and prices are placeholders. Verify every row against the manufacturer spec sheet and a live retailer listing before publishing. See README.md step 1."
+  },
+
+  "platforms": {
+    "dewalt-20v-max": {
+      "brand": "DeWalt",
+      "name": "20V MAX",
+      "marketing_volts": 20,
+      "nominal_volts": 18,
+      "note": "\"20V MAX\" is the peak off-charger voltage of 5 cells (5 x 4.0V). Nominal is 5 x 3.6V = 18V — identical to Milwaukee M18 and Makita LXT."
+    },
+    "dewalt-flexvolt": {
+      "brand": "DeWalt",
+      "name": "FlexVolt 60V MAX",
+      "marketing_volts": 60,
+      "nominal_volts": 18,
+      "note": "Ah is quoted in 20V mode. Energy is the same in either mode, so 20V-mode Ah x 18V gives the correct Wh."
+    },
+    "dewalt-12v-max": {
+      "brand": "DeWalt",
+      "name": "12V MAX",
+      "marketing_volts": 12,
+      "nominal_volts": 10.8,
+      "note": "3 cells. Peak 3 x 4.0V = 12V, nominal 3 x 3.6V = 10.8V."
+    },
+    "milwaukee-m18": {
+      "brand": "Milwaukee",
+      "name": "M18",
+      "marketing_volts": 18,
+      "nominal_volts": 18,
+      "note": "Marketed at nominal voltage — directly comparable to DeWalt 20V MAX."
+    },
+    "milwaukee-m12": {
+      "brand": "Milwaukee",
+      "name": "M12",
+      "marketing_volts": 12,
+      "nominal_volts": 10.8,
+      "note": "Marketed as 12V max; nominal is 10.8V."
+    },
+    "makita-18v-lxt": {
+      "brand": "Makita",
+      "name": "18V LXT",
+      "marketing_volts": 18,
+      "nominal_volts": 18,
+      "note": "Marketed at nominal voltage."
+    },
+    "makita-40v-xgt": {
+      "brand": "Makita",
+      "name": "40V max XGT",
+      "marketing_volts": 40,
+      "nominal_volts": 36,
+      "note": "10 cells. Peak 40V, nominal 36V."
+    },
+    "ryobi-one-18v": {
+      "brand": "Ryobi",
+      "name": "ONE+ 18V",
+      "marketing_volts": 18,
+      "nominal_volts": 18,
+      "note": "Marketed at nominal voltage."
+    },
+    "bosch-18v": {
+      "brand": "Bosch",
+      "name": "18V / CORE18V",
+      "marketing_volts": 18,
+      "nominal_volts": 18,
+      "note": "Marketed at nominal voltage."
+    }
+  },
+
+  "batteries": [
+    { "id": "dcb203", "platform": "dewalt-20v-max", "model": "DCB203", "name": "20V MAX 2.0Ah Compact", "amp_hours": 2.0, "pack_count": 1, "rated_wh": 36, "price": 59.0, "url": "", "asin": "", "checked_at": null },
+    { "id": "dcb204", "platform": "dewalt-20v-max", "model": "DCB204", "name": "20V MAX XR 4.0Ah", "amp_hours": 4.0, "pack_count": 1, "rated_wh": 72, "price": 99.0, "url": "", "asin": "", "checked_at": null },
+    { "id": "dcb205", "platform": "dewalt-20v-max", "model": "DCB205", "name": "20V MAX XR 5.0Ah", "amp_hours": 5.0, "pack_count": 1, "rated_wh": 90, "price": 109.0, "url": "", "asin": "", "checked_at": null },
+    { "id": "dcb205-2", "platform": "dewalt-20v-max", "model": "DCB205-2", "name": "20V MAX XR 5.0Ah (2-pack)", "amp_hours": 5.0, "pack_count": 2, "rated_wh": 90, "price": 179.0, "url": "", "asin": "", "checked_at": null },
+    { "id": "dcb206", "platform": "dewalt-20v-max", "model": "DCB206", "name": "20V MAX XR 6.0Ah", "amp_hours": 6.0, "pack_count": 1, "rated_wh": 108, "price": 129.0, "url": "", "asin": "", "checked_at": null },
+    { "id": "dcb208", "platform": "dewalt-20v-max", "model": "DCB208", "name": "20V MAX XR 8.0Ah", "amp_hours": 8.0, "pack_count": 1, "rated_wh": 144, "price": 169.0, "url": "", "asin": "", "checked_at": null },
+    { "id": "dcb210", "platform": "dewalt-20v-max", "model": "DCB210", "name": "20V MAX 10.0Ah", "amp_hours": 10.0, "pack_count": 1, "rated_wh": 180, "price": 199.0, "url": "", "asin": "", "checked_at": null },
+    { "id": "dcbp034", "platform": "dewalt-20v-max", "model": "DCBP034", "name": "20V MAX PowerStack 1.7Ah", "amp_hours": 1.7, "pack_count": 1, "rated_wh": 30.6, "price": 79.0, "url": "", "asin": "", "checked_at": null },
+    { "id": "dcbp315", "platform": "dewalt-20v-max", "model": "DCBP315", "name": "20V MAX PowerStack 5.0Ah", "amp_hours": 5.0, "pack_count": 1, "rated_wh": 90, "price": 169.0, "url": "", "asin": "", "checked_at": null },
+
+    { "id": "dcb606", "platform": "dewalt-flexvolt", "model": "DCB606", "name": "FlexVolt 6.0Ah", "amp_hours": 6.0, "pack_count": 1, "rated_wh": 108, "price": 159.0, "url": "", "asin": "", "checked_at": null },
+    { "id": "dcb609", "platform": "dewalt-flexvolt", "model": "DCB609", "name": "FlexVolt 9.0Ah", "amp_hours": 9.0, "pack_count": 1, "rated_wh": 162, "price": 199.0, "url": "", "asin": "", "checked_at": null },
+    { "id": "dcb612", "platform": "dewalt-flexvolt", "model": "DCB612", "name": "FlexVolt 12.0Ah", "amp_hours": 12.0, "pack_count": 1, "rated_wh": 216, "price": 249.0, "url": "", "asin": "", "checked_at": null },
+
+    { "id": "dcb120", "platform": "dewalt-12v-max", "model": "DCB120", "name": "12V MAX 1.3Ah", "amp_hours": 1.3, "pack_count": 1, "rated_wh": 14.0, "price": 39.0, "url": "", "asin": "", "checked_at": null },
+    { "id": "dcb124", "platform": "dewalt-12v-max", "model": "DCB124", "name": "12V MAX 3.0Ah", "amp_hours": 3.0, "pack_count": 1, "rated_wh": 32.4, "price": 69.0, "url": "", "asin": "", "checked_at": null },
+
+    { "id": "mil-48-11-1820", "platform": "milwaukee-m18", "model": "48-11-1820", "name": "M18 REDLITHIUM CP2.0", "amp_hours": 2.0, "pack_count": 1, "rated_wh": 36, "price": 79.0, "url": "", "asin": "", "checked_at": null },
+    { "id": "mil-48-11-1835", "platform": "milwaukee-m18", "model": "48-11-1835", "name": "M18 REDLITHIUM CP3.0", "amp_hours": 3.0, "pack_count": 1, "rated_wh": 54, "price": 99.0, "url": "", "asin": "", "checked_at": null },
+    { "id": "mil-48-11-1850", "platform": "milwaukee-m18", "model": "48-11-1850", "name": "M18 REDLITHIUM XC5.0", "amp_hours": 5.0, "pack_count": 1, "rated_wh": 90, "price": 129.0, "url": "", "asin": "", "checked_at": null },
+    { "id": "mil-48-11-1852", "platform": "milwaukee-m18", "model": "48-11-1852", "name": "M18 REDLITHIUM XC5.0 (2-pack)", "amp_hours": 5.0, "pack_count": 2, "rated_wh": 90, "price": 199.0, "url": "", "asin": "", "checked_at": null },
+    { "id": "mil-48-11-1862", "platform": "milwaukee-m18", "model": "48-11-1862", "name": "M18 HIGH OUTPUT XC6.0", "amp_hours": 6.0, "pack_count": 1, "rated_wh": 108, "price": 149.0, "url": "", "asin": "", "checked_at": null },
+    { "id": "mil-48-11-1880", "platform": "milwaukee-m18", "model": "48-11-1880", "name": "M18 REDLITHIUM HD9.0", "amp_hours": 9.0, "pack_count": 1, "rated_wh": 162, "price": 199.0, "url": "", "asin": "", "checked_at": null },
+    { "id": "mil-48-11-1812", "platform": "milwaukee-m18", "model": "48-11-1812", "name": "M18 HIGH OUTPUT HD12.0", "amp_hours": 12.0, "pack_count": 1, "rated_wh": 216, "price": 279.0, "url": "", "asin": "", "checked_at": null },
+
+    { "id": "mil-48-11-2420", "platform": "milwaukee-m12", "model": "48-11-2420", "name": "M12 REDLITHIUM CP2.0", "amp_hours": 2.0, "pack_count": 1, "rated_wh": 21.6, "price": 59.0, "url": "", "asin": "", "checked_at": null },
+    { "id": "mil-48-11-2440", "platform": "milwaukee-m12", "model": "48-11-2440", "name": "M12 REDLITHIUM XC4.0", "amp_hours": 4.0, "pack_count": 1, "rated_wh": 43.2, "price": 99.0, "url": "", "asin": "", "checked_at": null },
+    { "id": "mil-48-11-2460", "platform": "milwaukee-m12", "model": "48-11-2460", "name": "M12 REDLITHIUM XC6.0", "amp_hours": 6.0, "pack_count": 1, "rated_wh": 64.8, "price": 129.0, "url": "", "asin": "", "checked_at": null },
+
+    { "id": "bl1820b", "platform": "makita-18v-lxt", "model": "BL1820B", "name": "18V LXT 2.0Ah", "amp_hours": 2.0, "pack_count": 1, "rated_wh": 36, "price": 59.0, "url": "", "asin": "", "checked_at": null },
+    { "id": "bl1830b", "platform": "makita-18v-lxt", "model": "BL1830B", "name": "18V LXT 3.0Ah", "amp_hours": 3.0, "pack_count": 1, "rated_wh": 54, "price": 79.0, "url": "", "asin": "", "checked_at": null },
+    { "id": "bl1840b", "platform": "makita-18v-lxt", "model": "BL1840B", "name": "18V LXT 4.0Ah", "amp_hours": 4.0, "pack_count": 1, "rated_wh": 72, "price": 99.0, "url": "", "asin": "", "checked_at": null },
+    { "id": "bl1850b", "platform": "makita-18v-lxt", "model": "BL1850B", "name": "18V LXT 5.0Ah", "amp_hours": 5.0, "pack_count": 1, "rated_wh": 90, "price": 119.0, "url": "", "asin": "", "checked_at": null },
+    { "id": "bl1850b-2", "platform": "makita-18v-lxt", "model": "BL1850B-2", "name": "18V LXT 5.0Ah (2-pack)", "amp_hours": 5.0, "pack_count": 2, "rated_wh": 90, "price": 189.0, "url": "", "asin": "", "checked_at": null },
+    { "id": "bl1860b", "platform": "makita-18v-lxt", "model": "BL1860B", "name": "18V LXT 6.0Ah", "amp_hours": 6.0, "pack_count": 1, "rated_wh": 108, "price": 139.0, "url": "", "asin": "", "checked_at": null },
+
+    { "id": "bl4025", "platform": "makita-40v-xgt", "model": "BL4025", "name": "40V max XGT 2.5Ah", "amp_hours": 2.5, "pack_count": 1, "rated_wh": 90, "price": 139.0, "url": "", "asin": "", "checked_at": null },
+    { "id": "bl4040", "platform": "makita-40v-xgt", "model": "BL4040", "name": "40V max XGT 4.0Ah", "amp_hours": 4.0, "pack_count": 1, "rated_wh": 144, "price": 209.0, "url": "", "asin": "", "checked_at": null },
+    { "id": "bl4050f", "platform": "makita-40v-xgt", "model": "BL4050F", "name": "40V max XGT 5.0Ah", "amp_hours": 5.0, "pack_count": 1, "rated_wh": 180, "price": 239.0, "url": "", "asin": "", "checked_at": null },
+
+    { "id": "pbp005", "platform": "ryobi-one-18v", "model": "PBP005", "name": "ONE+ HP 2.0Ah", "amp_hours": 2.0, "pack_count": 1, "rated_wh": 36, "price": 49.0, "url": "", "asin": "", "checked_at": null },
+    { "id": "pbp002", "platform": "ryobi-one-18v", "model": "PBP002", "name": "ONE+ HP 4.0Ah", "amp_hours": 4.0, "pack_count": 1, "rated_wh": 72, "price": 79.0, "url": "", "asin": "", "checked_at": null },
+    { "id": "pbp006", "platform": "ryobi-one-18v", "model": "PBP006", "name": "ONE+ HP 6.0Ah", "amp_hours": 6.0, "pack_count": 1, "rated_wh": 108, "price": 99.0, "url": "", "asin": "", "checked_at": null },
+
+    { "id": "gba18v40", "platform": "bosch-18v", "model": "GBA18V40", "name": "18V 4.0Ah", "amp_hours": 4.0, "pack_count": 1, "rated_wh": 72, "price": 89.0, "url": "", "asin": "", "checked_at": null },
+    { "id": "gba18v80", "platform": "bosch-18v", "model": "GBA18V80", "name": "CORE18V 8.0Ah", "amp_hours": 8.0, "pack_count": 1, "rated_wh": 144, "price": 159.0, "url": "", "asin": "", "checked_at": null },
+    { "id": "gba18v120", "platform": "bosch-18v", "model": "GBA18V120", "name": "CORE18V 12.0Ah", "amp_hours": 12.0, "pack_count": 1, "rated_wh": 216, "price": 229.0, "url": "", "asin": "", "checked_at": null }
+  ]
+}

@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Battery Prices — cordless tool batteries ranked by $/Wh</title>
+<meta name="description" content="Every cordless power tool battery, ranked by real cost per watt-hour. Ah alone lies. We normalise by nominal voltage so DeWalt 20V MAX, Milwaukee M18 and Makita LXT compare fairly.">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="site">
+  <h1>Battery Prices</h1>
+  <p class="tag">Cordless tool batteries ranked by <strong>real cost per watt-hour</strong>.</p>
+</header>
+
+<div id="banners"></div>
+
+<details class="explain">
+  <summary>Why <code>$/Ah</code> lies, and <code>$/Wh</code> doesn't</summary>
+  <div class="explain-body">
+    <p>
+      A "20V MAX" battery and an "18V" battery deliver <strong>exactly the same voltage</strong>.
+      Five lithium cells peak at 5&nbsp;&times;&nbsp;4.0V&nbsp;=&nbsp;20V straight off the charger, and settle at
+      their nominal 5&nbsp;&times;&nbsp;3.6V&nbsp;=&nbsp;18V for the rest of the discharge. DeWalt prints the peak.
+      Milwaukee and Makita print the nominal. Same pack.
+    </p>
+    <p>
+      So comparing amp-hours across brands is fine — but comparing them across <em>voltages</em>
+      (M12 vs M18, LXT vs XGT) is meaningless. Watt-hours fold voltage back in:
+    </p>
+    <p class="formula">Wh = nominal volts &times; Ah &nbsp;&nbsp;→&nbsp;&nbsp; $/Wh = price ÷ (Wh &times; packs)</p>
+    <p>
+      Every row below is computed from <strong>nominal</strong> voltage, not the number on the sticker,
+      and multi-packs are divided by their total energy. That's the whole product.
+    </p>
+  </div>
+</details>
+
+<section class="controls" aria-label="Filters">
+  <div class="control search">
+    <label for="q">Search</label>
+    <input type="search" id="q" placeholder="DCB205, PowerStack, XGT…" autocomplete="off">
+  </div>
+
+  <div class="control">
+    <label for="sort">Sort by</label>
+    <select id="sort">
+      <option value="perWh">$/Wh — best value first</option>
+      <option value="perAh">$/Ah</option>
+      <option value="price">Total price</option>
+      <option value="wh">Total Wh</option>
+      <option value="ah">Amp-hours</option>
+    </select>
+  </div>
+
+  <div class="control">
+    <label for="minAh">Min Ah (per pack)</label>
+    <select id="minAh">
+      <option value="0">Any</option>
+      <option value="2">2.0+</option>
+      <option value="4">4.0+</option>
+      <option value="5">5.0+</option>
+      <option value="6">6.0+</option>
+      <option value="9">9.0+</option>
+    </select>
+  </div>
+
+  <div class="control">
+    <label for="packs">Packs</label>
+    <select id="packs">
+      <option value="all">Any</option>
+      <option value="1">Single only</option>
+      <option value="2">Multi-packs only</option>
+    </select>
+  </div>
+
+  <fieldset class="control platforms">
+    <legend>
+      Platform
+      <button type="button" id="allPlatforms" class="mini">all</button>
+      <button type="button" id="nonePlatforms" class="mini">none</button>
+    </legend>
+    <div id="platformList" class="platform-list"></div>
+  </fieldset>
+</section>
+
+<p id="summary" class="summary" role="status"></p>
+
+<div class="table-wrap">
+  <table id="table">
+    <thead>
+      <tr>
+        <th class="col-plat">Platform</th>
+        <th class="col-model">Battery</th>
+        <th class="num">Ah</th>
+        <th class="num">V<span class="th-sub">nominal</span></th>
+        <th class="num">Wh<span class="th-sub">total</span></th>
+        <th class="num">Price</th>
+        <th class="num primary">$/Wh</th>
+        <th class="num">$/Ah</th>
+        <th class="col-buy"></th>
+      </tr>
+    </thead>
+    <tbody id="rows"></tbody>
+  </table>
+</div>
+
+<p id="empty" class="empty" hidden>Nothing matches those filters.</p>
+
+<footer class="site">
+  <p class="disclosure">
+    <strong>Disclosure:</strong> links to retailers are affiliate links. If you buy through one,
+    this site earns a commission at no extra cost to you. That is how it stays free. It does not
+    affect the ranking — the table is sorted purely on $/Wh.
+  </p>
+  <p class="prices-note">
+    Prices and availability change constantly and may be out of date. The price shown at the
+    retailer at the time of purchase is the one that applies.
+    <span id="stamp"></span>
+  </p>
+  <p class="prices-note">
+    Watt-hours are the manufacturer's published rating where available, otherwise
+    nominal&nbsp;volts&nbsp;&times;&nbsp;Ah. Rows where those two disagree are flagged.
+  </p>
+</footer>
+
+<script src="assets/app.js"></script>
+</body>
+</html>
