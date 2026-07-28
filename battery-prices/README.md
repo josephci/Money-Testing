@@ -34,12 +34,13 @@
 
 ```
 battery-prices/
-├── index.html              頁面結構
+├── index.html              頁面結構（含 SEO / OG meta）
 ├── assets/style.css        樣式（自動跟系統深色/淺色）
-├── assets/app.js           計算、篩選、排序、渲染
+├── assets/app.js           計算、篩選、排序、URL 狀態、渲染
+├── assets/og.png           社交分享卡片 1200×630
 ├── data/batteries.json     ⭐ 資料源（39 個型號,9 個平台）
 ├── scripts/update_prices.py 驗證 + CSV 匯出/匯入 + PA-API stub
-└── scripts/build.py        打包成單一 dist/index.html
+└── scripts/build.py        生成 10 版 + sitemap + robots
 ```
 
 ## 點跑
@@ -52,11 +53,39 @@ python3 -m http.server 8000
 # 驗證資料
 python3 scripts/update_prices.py --check
 
-# 打包成單一檔案部署
-python3 scripts/build.py          # → dist/index.html（自足,28KB,零外部請求）
+# 打包部署（記住加 --base-url,唔加 canonical 會指去 example.com）
+python3 scripts/build.py --base-url https://yourdomain.com
 ```
 
-`dist/index.html` 冇任何外部請求,直接掉上 Cloudflare Pages / GitHub Pages / S3 就得。
+輸出：
+
+```
+dist/
+├── index.html              全部 39 個型號
+├── milwaukee-m18/          ← 每個平台一版,獨立 title/description/開場文
+├── dewalt-20v-max/            （共 9 個）
+├── ...
+├── assets/og.png
+├── sitemap.xml
+└── robots.txt
+```
+
+每一版都自足（CSS / JS / 資料全部 inline,零外部請求),直接掉上 Cloudflare Pages / GitHub Pages / S3 就得。
+
+## 平台頁同分享連結
+
+推廣策略要求「一個品牌一個帖」,所以：
+
+| 形式 | 用途 |
+|---|---|
+| `/milwaukee-m18/` | 靜態頁,有獨立 SEO metadata。**發帖用呢個** |
+| `?p=milwaukee-m18` | 動態篩選,可分享 |
+| `?x=ryobi-one-18v` | 排除式（剔走少數平台時 URL 短好多） |
+| `?sort=price&minAh=5` | 排序同容量篩選都入 URL |
+
+篩選一改,URL 自動更新（`replaceState`）。**冇呢個就分享唔到篩選後嘅表,「一個品牌一個帖」做唔成。**
+
+> 完整推廣計劃見 [`../docs/traffic-plan.md`](../docs/traffic-plan.md)
 
 ---
 
@@ -104,13 +133,21 @@ python3 scripts/update_prices.py --import-csv prices.csv
 
 ### Step 3 — 出街,攞頭 3 單
 
-部署 `dist/index.html`,然後去：
+部署,然後**一個品牌一個帖**（每個 sub 貼佢自己嘅平台頁,唔係首頁）：
 
-- **r/Tools**、**r/DIY**、**r/electricians**
-- ToolGuyd 留言區（佢哋讀者就係你目標客）
-- Hacker News「Show HN」
+| Subreddit | 貼邊版 |
+|---|---|
+| r/MilwaukeeTool | `/milwaukee-m18/` |
+| r/Dewalt | `/dewalt-20v-max/` |
+| r/Makita | `/makita-18v-lxt/` |
+| r/ryobi | `/ryobi-one-18v/` |
+| r/Tools, r/DIY, r/electricians | 首頁 |
 
-⚠️ **每個社群嘅自我宣傳規則先睇清楚。** 帶價值咁分享（「我整咗個表發現 Ryobi 每 Wh 最平」）好過硬銷。
+加埋：Show HN（標題「Disk Prices, but for power tool batteries」）、email ToolGuyd 編輯。
+
+⚠️ **每個 sub 嘅自我宣傳規則先睇清楚,而且分開幾日發。** 帶價值咁分享（「我計晒發現 XC5.0 雙支裝每 Wh 抵 15%」）好過硬銷 —— **推廣個發現,唔係推廣個站。**
+
+> 詳細見 [`../docs/traffic-plan.md`](../docs/traffic-plan.md)
 
 ### Step 4 — 夠單先自動化
 

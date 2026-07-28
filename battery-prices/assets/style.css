@@ -57,6 +57,44 @@ header.site h1 { margin: 0; font-size: 1.55rem; letter-spacing: -0.01em; }
 }
 .banner code { font-family: var(--mono); font-size: 0.85em; }
 
+/* ---------- per-platform intro ---------- */
+
+.intro { margin: 0 0 1.1rem; max-width: 68ch; }
+.intro h2 { font-size: 1.05rem; margin: 0 0 0.5rem; }
+.intro p { margin: 0.5rem 0; color: var(--muted); }
+.intro strong { color: var(--fg); }
+
+/* ---------- platform nav ---------- */
+
+.platform-nav { margin-top: 2.2rem; }
+.platform-nav h2 {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  margin: 0 0 0.5rem;
+}
+.platform-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+.platform-nav a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.3rem 0.7rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  text-decoration: none;
+  color: var(--fg);
+  font-size: 0.85rem;
+}
+.platform-nav a:hover { border-color: var(--accent); color: var(--accent); }
+
 /* ---------- explainer ---------- */
 
 .explain {

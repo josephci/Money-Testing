@@ -7,6 +7,8 @@
 const STALE_HOURS = 24; // Amazon's operating agreement caps displayed price age at 24h.
 
 const el = {
+  intro: document.getElementById('intro'),
+  platformNav: document.getElementById('platformNav'),
   banners: document.getElementById('banners'),
   rows: document.getElementById('rows'),
   table: document.getElementById('table'),
@@ -97,20 +99,73 @@ function renderBanners() {
   el.banners.innerHTML = out.join('');
 }
 
+/* ---------- url state ----------
+ *
+ * Filters live in the query string so a filtered view is a shareable link.
+ * "Here is every M18 battery by $/Wh" as a URL is the whole distribution
+ * strategy — a page with no shareable state gets posted once and dies.
+ */
+
+function readUrlState() {
+  const u = new URLSearchParams(location.search);
+  let platforms = u.get('p') ? u.get('p').split(',').filter(Boolean) : null;
+
+  // x= lists what to drop instead of what to keep.
+  if (!platforms && u.get('x')) {
+    const drop = new Set(u.get('x').split(',').filter(Boolean));
+    platforms = Object.keys(DATA.platforms).filter((k) => !drop.has(k));
+  }
+
+  return {
+    platforms,
+    sort: u.get('sort'),
+    minAh: u.get('minAh'),
+    packs: u.get('packs'),
+    q: u.get('q'),
+  };
+}
+
+function writeUrlState() {
+  const u = new URLSearchParams();
+  const all = Object.keys(DATA.platforms);
+  const sel = [...selectedPlatforms()];
+
+  // Only record the platform filter when it is actually narrowing something,
+  // and record whichever side is shorter — "?p=milwaukee-m18" beats listing
+  // the eight platforms you did not pick.
+  if (sel.length && sel.length !== all.length) {
+    const dropped = all.filter((k) => !sel.includes(k));
+    if (dropped.length < sel.length) u.set('x', dropped.join(','));
+    else u.set('p', sel.join(','));
+  }
+  if (el.sort.value !== 'perWh') u.set('sort', el.sort.value);
+  if (el.minAh.value !== '0') u.set('minAh', el.minAh.value);
+  if (el.packs.value !== 'all') u.set('packs', el.packs.value);
+  if (el.q.value.trim()) u.set('q', el.q.value.trim());
+
+  const qs = u.toString();
+  history.replaceState(null, '', qs ? `?${qs}` : location.pathname);
+}
+
 /* ---------- platform filter ---------- */
 
-function renderPlatformFilter() {
-  const keys = Object.keys(DATA.platforms).sort((a, b) => {
+function platformKeys() {
+  return Object.keys(DATA.platforms).sort((a, b) => {
     const pa = DATA.platforms[a], pb = DATA.platforms[b];
     return pa.brand.localeCompare(pb.brand) || pa.name.localeCompare(pb.name);
   });
+}
 
-  el.platformList.innerHTML = keys
+function renderPlatformFilter(preselect) {
+  const on = preselect && preselect.length ? new Set(preselect) : null;
+
+  el.platformList.innerHTML = platformKeys()
     .map((k) => {
       const p = DATA.platforms[k];
       const n = ITEMS.filter((i) => i.platformKey === k).length;
+      const checked = !on || on.has(k) ? ' checked' : '';
       return `<label title="${escapeAttr(p.note || '')}">
-        <input type="checkbox" value="${k}" checked>
+        <input type="checkbox" value="${k}"${checked}>
         <span>${escapeHtml(p.brand)} ${escapeHtml(p.name)}</span>
         <span class="plat-name">${n}</span>
       </label>`;
@@ -120,6 +175,21 @@ function renderPlatformFilter() {
   el.platformList.addEventListener('change', render);
   el.allPlatforms.addEventListener('click', () => setAllPlatforms(true));
   el.nonePlatforms.addEventListener('click', () => setAllPlatforms(false));
+}
+
+// Crawlable internal links. Static per-platform pages exist at these paths
+// when the site is built with build.py; the query string is the fallback.
+function renderPlatformNav() {
+  if (!el.platformNav) return;
+  const base = window.__PAGE_BASE__ || '';
+  el.platformNav.innerHTML = platformKeys()
+    .map((k) => {
+      const p = DATA.platforms[k];
+      const n = ITEMS.filter((i) => i.platformKey === k).length;
+      return `<li><a href="${base}${k}/">${escapeHtml(p.brand)} ${escapeHtml(p.name)}
+        <span class="plat-name">${n}</span></a></li>`;
+    })
+    .join('');
 }
 
 function setAllPlatforms(on) {
@@ -177,6 +247,8 @@ function render() {
   el.summary.textContent =
     `${list.length} of ${ITEMS.length} batteries` +
     (cheapest !== null ? ` · best value ${cents(cheapest)}/Wh` : '');
+
+  writeUrlState();
 }
 
 function sortValue(i, key) {
@@ -249,8 +321,21 @@ async function boot() {
 
   ITEMS = DATA.batteries.map((item) => enrich({ item, platforms: DATA.platforms }));
 
+  const url = readUrlState();
+
+  // Precedence: explicit query string, then the platform this static page was
+  // built for, then everything.
+  const preselect = url.platforms
+    || (window.__PLATFORM__ ? [window.__PLATFORM__] : null);
+
+  if (url.sort) el.sort.value = url.sort;
+  if (url.minAh) el.minAh.value = url.minAh;
+  if (url.packs) el.packs.value = url.packs;
+  if (url.q) el.q.value = url.q;
+
   renderBanners();
-  renderPlatformFilter();
+  renderPlatformFilter(preselect);
+  renderPlatformNav();
 
   el.stamp.textContent = DATA.meta.generated_at
     ? `Last updated ${new Date(DATA.meta.generated_at).toLocaleString()}.`

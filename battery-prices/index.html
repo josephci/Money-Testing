@@ -4,7 +4,17 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Battery Prices — cordless tool batteries ranked by $/Wh</title>
-<meta name="description" content="Every cordless power tool battery, ranked by real cost per watt-hour. Ah alone lies. We normalise by nominal voltage so DeWalt 20V MAX, Milwaukee M18 and Makita LXT compare fairly.">
+<meta name="description" content="Every cordless power tool battery, ranked by real cost per watt-hour. Amp-hours lie across voltages. We normalise by nominal voltage so DeWalt 20V MAX, Milwaukee M18 and Makita LXT compare fairly.">
+<link rel="canonical" href="https://example.com/">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Battery Prices">
+<meta property="og:title" content="Battery Prices — cordless tool batteries ranked by $/Wh">
+<meta property="og:description" content="&quot;20V MAX&quot; and &quot;18V&quot; are the same pack. Amp-hours can't be compared across voltages — watt-hours can. Every battery, ranked by real cost per Wh.">
+<meta property="og:url" content="https://example.com/">
+<meta property="og:image" content="https://example.com/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
@@ -13,6 +23,8 @@
   <h1>Battery Prices</h1>
   <p class="tag">Cordless tool batteries ranked by <strong>real cost per watt-hour</strong>.</p>
 </header>
+
+<div id="intro"></div>
 
 <div id="banners"></div>
 
@@ -107,6 +119,11 @@
 </div>
 
 <p id="empty" class="empty" hidden>Nothing matches those filters.</p>
+
+<nav class="platform-nav" aria-label="Battery platforms">
+  <h2>Browse by battery platform</h2>
+  <ul id="platformNav"></ul>
+</nav>
 
 <footer class="site">
   <p class="disclosure">

@@ -1,56 +1,227 @@
 #!/usr/bin/env python3
-"""Bundle the site into a single self-contained dist/index.html.
+"""Bundle the site into dist/.
 
-CSS, JS and the dataset all get inlined, so the output is one file with no
-requests of its own. Drop it on Cloudflare Pages, GitHub Pages, S3, anywhere.
+Emits:
+  dist/index.html            every platform
+  dist/<platform>/index.html one page per battery platform
+  dist/assets/og.png         social card
+  dist/sitemap.xml
+  dist/robots.txt
+
+CSS, JS and the dataset are inlined into every page, so each one is a single
+file with no requests of its own.
+
+The per-platform pages exist for search traffic. "milwaukee m18 battery
+comparison" is a real query with real volume; a single-page site cannot rank
+for nine of those at once, and each page carries its own title, description
+and opening copy derived from that platform's data.
+
+  python3 scripts/build.py --base-url https://yourdomain.com
 """
 
 from __future__ import annotations
 
+import argparse
+import html
 import json
 import re
 import shutil
+from datetime import date
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 DIST = ROOT / "dist"
 
 
-def inline(html: str, css: str, js: str, data: dict) -> str:
-    html = html.replace(
-        '<link rel="stylesheet" href="assets/style.css">',
-        f"<style>\n{css}\n</style>",
+# ---------- helpers ----------
+
+def esc(s: str) -> str:
+    return html.escape(str(s), quote=True)
+
+
+def platform_stats(data: dict, key: str) -> dict:
+    plat = data["platforms"][key]
+    rows = [b for b in data["batteries"] if b["platform"] == key]
+
+    best = None
+    for b in rows:
+        price = b.get("price")
+        if not price or price <= 0:
+            continue
+        per_pack = b["rated_wh"] if b.get("rated_wh") is not None else plat["nominal_volts"] * b["amp_hours"]
+        per_wh = price / (per_pack * b["pack_count"])
+        if best is None or per_wh < best[0]:
+            best = (per_wh, b)
+
+    return {"plat": plat, "count": len(rows), "best": best}
+
+
+def intro_html(key: str, st: dict) -> str:
+    """Opening copy for a platform page, built from that platform's own numbers."""
+    p, n, best = st["plat"], st["count"], st["best"]
+    name = f"{p['brand']} {p['name']}"
+
+    parts = [
+        f"<h2>{esc(name)} batteries by cost per watt-hour</h2>",
+        f"<p>All {n} {esc(name)} batteries we track, ranked by what a watt-hour "
+        f"actually costs. Multi-packs are divided by their total energy, so a "
+        f"two-pack competes on the same terms as a single.</p>",
+    ]
+
+    if p["marketing_volts"] != p["nominal_volts"]:
+        parts.append(
+            f"<p><strong>{esc(name)} packs are sold as {p['marketing_volts']}V but run at "
+            f"{p['nominal_volts']}V nominal.</strong> {esc(p.get('note', ''))} "
+            f"Every figure below uses the nominal {p['nominal_volts']}V, which is why these "
+            f"numbers compare cleanly against any other brand.</p>"
+        )
+    else:
+        parts.append(
+            f"<p>{esc(name)} is marketed at its nominal {p['nominal_volts']}V, so the sticker "
+            f"and the real figure already agree — unlike platforms that advertise peak voltage.</p>"
+        )
+
+    if best:
+        per_wh, b = best
+        parts.append(
+            f"<p>Best value right now: <strong>{esc(b['name'])}</strong> "
+            f"({esc(b['model'])}) at <strong>${per_wh:.3f}/Wh</strong>.</p>"
+        )
+
+    return '<section class="intro">' + "".join(parts) + "</section>"
+
+
+def render(html_src: str, css: str, js: str, data: dict, *, base_url: str,
+           path: str, title: str, desc: str, platform: str | None,
+           page_base: str, intro: str) -> str:
+    """Inline everything and stamp this page's metadata."""
+    out = html_src.replace(
+        '<link rel="stylesheet" href="assets/style.css">', f"<style>\n{css}\n</style>"
     )
 
-    # </script> inside the JSON would close the tag early.
+    out = out.replace(
+        "<title>Battery Prices — cordless tool batteries ranked by $/Wh</title>",
+        f"<title>{esc(title)}</title>",
+    )
+    out = re.sub(r'<meta name="description" content="[^"]*">',
+                 f'<meta name="description" content="{esc(desc)}">', out, count=1)
+    out = re.sub(r'<meta property="og:title" content="[^"]*">',
+                 f'<meta property="og:title" content="{esc(title)}">', out, count=1)
+    out = re.sub(r'<meta property="og:description" content="[^"]*">',
+                 f'<meta property="og:description" content="{esc(desc)}">', out, count=1)
+
+    url = base_url.rstrip("/") + path
+    out = out.replace('<link rel="canonical" href="https://example.com/">',
+                      f'<link rel="canonical" href="{esc(url)}">')
+    out = out.replace('<meta property="og:url" content="https://example.com/">',
+                      f'<meta property="og:url" content="{esc(url)}">')
+    out = out.replace('content="https://example.com/assets/og.png"',
+                      f'content="{esc(base_url.rstrip("/"))}/assets/og.png"')
+
+    out = out.replace('<div id="intro"></div>', f'<div id="intro">{intro}</div>')
+
     payload = json.dumps(data, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
+    boot = [f"window.__DATA__ = {payload};",
+            f"window.__PAGE_BASE__ = {json.dumps(page_base)};"]
+    if platform:
+        boot.append(f"window.__PLATFORM__ = {json.dumps(platform)};")
 
-    html = html.replace(
+    return out.replace(
         '<script src="assets/app.js"></script>',
-        f"<script>\nwindow.__DATA__ = {payload};\n</script>\n<script>\n{js}\n</script>",
+        "<script>\n" + "\n".join(boot) + f"\n</script>\n<script>\n{js}\n</script>",
     )
-    return html
 
+
+# ---------- build ----------
 
 def main() -> int:
-    html = (ROOT / "index.html").read_text(encoding="utf-8")
+    ap = argparse.ArgumentParser(description=__doc__,
+                                 formatter_class=argparse.RawDescriptionHelpFormatter)
+    ap.add_argument("--base-url", default="https://example.com",
+                    help="canonical origin, e.g. https://toolbatteryprices.com")
+    args = ap.parse_args()
+    base = args.base_url.rstrip("/")
+
+    html_src = (ROOT / "index.html").read_text(encoding="utf-8")
     css = (ROOT / "assets" / "style.css").read_text(encoding="utf-8")
     js = (ROOT / "assets" / "app.js").read_text(encoding="utf-8")
     data = json.loads((ROOT / "data" / "batteries.json").read_text(encoding="utf-8"))
 
-    out = inline(html, css, js, data)
-
     if DIST.exists():
         shutil.rmtree(DIST)
     DIST.mkdir()
-    (DIST / "index.html").write_text(out, encoding="utf-8")
 
-    for leftover in re.findall(r'(?:src|href)="assets/[^"]+"', out):
-        print(f"warn  {leftover} was not inlined")
+    pages: list[str] = []
 
-    kb = len(out.encode()) / 1024
-    print(f"dist/index.html · {kb:.1f} KB · {len(data['batteries'])} batteries")
+    # Home
+    (DIST / "index.html").write_text(
+        render(
+            html_src, css, js, data,
+            base_url=base, path="/",
+            title="Battery Prices — cordless tool batteries ranked by $/Wh",
+            desc=("Every cordless power tool battery ranked by real cost per watt-hour. "
+                  "DeWalt, Milwaukee, Makita, Ryobi and Bosch normalised to nominal "
+                  "voltage so the comparison is honest."),
+            platform=None, page_base="", intro="",
+        ),
+        encoding="utf-8",
+    )
+    pages.append("/")
 
+    # One page per platform
+    for key in sorted(data["platforms"]):
+        st = platform_stats(data, key)
+        if st["count"] == 0:
+            continue
+        p = st["plat"]
+        name = f"{p['brand']} {p['name']}"
+
+        desc = (f"All {st['count']} {name} batteries ranked by cost per watt-hour. ")
+        if p["marketing_volts"] != p["nominal_volts"]:
+            desc += (f"Sold as {p['marketing_volts']}V, actually {p['nominal_volts']}V nominal — "
+                     f"we use the real figure.")
+        else:
+            desc += "Multi-packs divided by total energy, so the comparison is honest."
+
+        d = DIST / key
+        d.mkdir()
+        (d / "index.html").write_text(
+            render(
+                html_src, css, js, data,
+                base_url=base, path=f"/{key}/",
+                title=f"{name} battery comparison — cheapest $/Wh",
+                desc=desc, platform=key, page_base="../",
+                intro=intro_html(key, st),
+            ),
+            encoding="utf-8",
+        )
+        pages.append(f"/{key}/")
+
+    # Assets referenced by absolute URL (the social card).
+    og = ROOT / "assets" / "og.png"
+    if og.exists():
+        (DIST / "assets").mkdir(exist_ok=True)
+        shutil.copy2(og, DIST / "assets" / "og.png")
+    else:
+        print("warn  assets/og.png missing — og:image will 404")
+
+    today = date.today().isoformat()
+    (DIST / "sitemap.xml").write_text(
+        '<?xml version="1.0" encoding="UTF-8"?>\n'
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+        + "".join(f"  <url><loc>{base}{p}</loc><lastmod>{today}</lastmod></url>\n" for p in pages)
+        + "</urlset>\n",
+        encoding="utf-8",
+    )
+    (DIST / "robots.txt").write_text(
+        f"User-agent: *\nAllow: /\n\nSitemap: {base}/sitemap.xml\n", encoding="utf-8"
+    )
+
+    total = sum(f.stat().st_size for f in DIST.rglob("*") if f.is_file()) / 1024
+    print(f"{len(pages)} pages · {total:.0f} KB total · base {base}")
+
+    if base == "https://example.com":
+        print("warn  --base-url not set; canonical and sitemap point at example.com")
     if data["meta"].get("price_source") == "sample":
         print("\nNOTE: still sample data — do not deploy this build.")
 
