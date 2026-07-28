@@ -322,6 +322,35 @@ def main() -> int:
             )
             pages.append(mpath)
 
+    # Editorial pages from content/*.html. Each carries its own title and
+    # description in a leading HTML comment.
+    content_dir = ROOT / "content"
+    for src in sorted(content_dir.glob("*.html")) if content_dir.exists() else []:
+        raw = src.read_text(encoding="utf-8")
+        head = re.match(r"\s*<!--(.*?)-->\s*", raw, re.S)
+        meta = {}
+        if head:
+            for line in head.group(1).strip().splitlines():
+                if ":" in line:
+                    k, v = line.split(":", 1)
+                    meta[k.strip()] = v.strip()
+            raw = raw[head.end():]
+
+        slug = src.stem
+        d = DIST / slug
+        d.mkdir(parents=True, exist_ok=True)
+        (d / "index.html").write_text(
+            render(
+                html_src, css, js, data,
+                base_url=base, path=f"/{slug}/",
+                title=meta.get("title", slug),
+                desc=meta.get("description", ""),
+                platform=None, page_base="../", intro=raw,
+            ),
+            encoding="utf-8",
+        )
+        pages.append(f"/{slug}/")
+
     # Assets referenced by absolute URL (the social card).
     og = ROOT / "assets" / "og.png"
     if og.exists():

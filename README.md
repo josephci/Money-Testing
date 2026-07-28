@@ -13,6 +13,7 @@
 | 👉 [`docs/monitoring-directions.md`](docs/monitoring-directions.md) | **7 個具體方向** + 「佢自己做到點解要買你」嘅完整答案 + Buy vs Build 評分表 |
 | 👉 [`docs/price-comparison-sites.md`](docs/price-comparison-sites.md) | **diskprices.com 模式分析** — 真實收入數據、飽和地圖（實查）、仲有空白嘅方向 |
 | 👉 [`docs/traffic-plan.md`](docs/traffic-plan.md) | **流量計劃** — 域名選擇、三層流量模型、逐個渠道、90 日時間表 |
+| 👉 [`docs/market-check.md`](docs/market-check.md) | **市場覆查** — 實查確認/推翻嘅假設,同埋一個要你自己驗證嘅 |
 | 👉 [`docs/quiet-launch.md`](docs/quiet-launch.md) | **唔想發帖點算** — 零社交推廣路線、長尾 SEO、老實嘅收入上限 |
 | 🛠 [`battery-prices/`](battery-prices/) | **實際專案** — 電動工具電池 $/Wh 比價站（可跑） |
 | [`docs/ideas.md`](docs/ideas.md) | 16 個方法逐個分析（所需資本、所需時間、真實自動化程度） |

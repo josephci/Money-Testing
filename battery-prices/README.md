@@ -38,9 +38,10 @@ battery-prices/
 ├── assets/style.css        樣式（自動跟系統深色/淺色）
 ├── assets/app.js           計算、篩選、排序、URL 狀態、渲染
 ├── assets/og.png           社交分享卡片 1200×630
+├── content/*.html          文章頁（title/description 寫喺開頭 HTML comment）
 ├── data/batteries.json     ⭐ 資料源（39 個型號,9 個平台）
 ├── scripts/update_prices.py 驗證 + CSV 匯出/匯入 + PA-API stub
-└── scripts/build.py        生成 49 版 + sitemap + robots
+└── scripts/build.py        生成 50 版 + sitemap + robots
 ```
 
 ## 點跑
@@ -85,6 +86,7 @@ dist/
 | `?p=milwaukee-m18` | 動態篩選,可分享 |
 | `?x=ryobi-one-18v` | 排除式（剔走少數平台時 URL 短好多） |
 | `?sort=price&minAh=5` | 排序同容量篩選都入 URL |
+| `/20v-max-vs-18v/` | 文章頁。⚠️ 頭部字競爭激烈,呢版嘅價值係信譽錨點 + 長尾 + 內部連結,詳見 [`market-check.md`](../docs/market-check.md) |
 
 篩選一改,URL 自動更新（`replaceState`）。**冇呢個就分享唔到篩選後嘅表,「一個品牌一個帖」做唔成。**
 

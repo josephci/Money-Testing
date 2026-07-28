@@ -1,0 +1,168 @@
+<!--
+title: 20V MAX vs 18V — same battery, and the number that actually matters
+description: DeWalt's 20V MAX and Milwaukee's M18 are electrically identical: 5 cells, 20V peak, 18V nominal. Here is why the label differs, why the "$10 per Ah" rule breaks, and what to compare instead.
+-->
+<article class="prose">
+
+<h2>20V MAX vs 18V: same battery, different sticker</h2>
+
+<p class="lede">
+  A DeWalt 20V MAX pack and a Milwaukee M18 pack hold the same cells, at the same
+  voltage, wired the same way. The labels differ because the two companies chose to
+  print different moments in the discharge curve. Neither is lying. Neither is
+  stronger.
+</p>
+
+<p>
+  The number that separates them is not a fact about the battery. It is a choice about
+  which fact to advertise.
+</p>
+
+<h3>Where 20 and 18 both come from</h3>
+
+<p>
+  Both packs are five lithium-ion cells in series. A lithium-ion cell has two voltages
+  worth naming:
+</p>
+
+<table class="prose-table">
+  <thead>
+    <tr><th>Per cell</th><th>&times; 5 cells</th><th>Who prints it</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>4.0V</strong> — fully charged, no load</td>
+      <td><strong>20V</strong></td>
+      <td>DeWalt ("20V MAX"), Craftsman ("V20")</td>
+    </tr>
+    <tr>
+      <td><strong>3.6V</strong> — nominal, the working average</td>
+      <td><strong>18V</strong></td>
+      <td>Milwaukee (M18), Makita (LXT), Bosch, Ryobi</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>
+  A 20V MAX pack reads 20V for the few seconds after it leaves the charger. Pull a
+  trigger and it settles to about 18V, where it spends effectively its entire working
+  life. An M18 pack does exactly the same thing — Milwaukee just named it after the
+  part that lasts.
+</p>
+
+<p class="callout">
+  Outside the United States, DeWalt sells the identical pack as <strong>18V</strong>.
+  Other markets require the nominal figure on the label. Same cells, same tool, same
+  performance, different regulation.
+</p>
+
+<h3>So which one is more powerful?</h3>
+
+<p>
+  Neither. If two tools have the same motor and the same gearing, a 20V MAX pack and an
+  18V pack drive them identically. Torque comes from the motor design, the gearbox and
+  how much current the pack can deliver — not from the number silk-screened on the side.
+</p>
+
+<p>
+  This matters commercially because the two numbers sit next to each other on a shelf
+  and one of them looks bigger.
+</p>
+
+<h3>The part other explainers stop before</h3>
+
+<p>
+  Almost every article about this ends at "it's just marketing." That is true, and it is
+  not useful yet. The practical question is the next one:
+</p>
+
+<p class="question">If the voltage label is meaningless, what <em>do</em> you compare?</p>
+
+<h3>Why "$10 per amp-hour" breaks</h3>
+
+<p>
+  The common rule of thumb in tool forums is that a battery should cost around
+  <strong>$10 per amp-hour</strong>. It is a reasonable instinct — buyers want a
+  normalised number — but amp-hours are the wrong unit, and the rule quietly fails the
+  moment two packs run at different voltages.
+</p>
+
+<p>
+  An amp-hour measures <em>charge</em>, not <em>energy</em>. How much work that charge
+  can do depends on the voltage pushing it. Compare a 12V-class pack with an 18V-class
+  pack on amp-hours and you will reliably pick the worse one:
+</p>
+
+<table class="prose-table">
+  <thead>
+    <tr><th>Pack</th><th>Ah</th><th>Nominal V</th><th>Energy</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Milwaukee M12 6.0Ah</td><td>6.0</td><td>10.8V</td><td>64.8Wh</td></tr>
+    <tr><td>Milwaukee M18 5.0Ah</td><td>5.0</td><td>18V</td><td><strong>90Wh</strong></td></tr>
+  </tbody>
+</table>
+
+<p>
+  The M12 pack has <em>more amp-hours</em> and <strong>39% less energy</strong>. Judged
+  on Ah it looks like the better buy. It is not close.
+</p>
+
+<h3>Watt-hours fold the voltage back in</h3>
+
+<p class="formula-block">
+  Wh = nominal volts &times; Ah
+</p>
+
+<p>
+  That single multiplication makes every pack from every brand at every voltage directly
+  comparable. Divide by price and you get the only figure that settles an argument:
+</p>
+
+<p class="formula-block">
+  $/Wh = price &divide; (Wh &times; number of packs)
+</p>
+
+<h3>Worked example</h3>
+
+<p>
+  A DeWalt 20V MAX 5.0Ah pack. The sticker says 20V and 5.0Ah, and neither number goes
+  into the calculation as printed:
+</p>
+
+<ul class="steps">
+  <li>Nominal voltage is <strong>18V</strong>, not the advertised 20V</li>
+  <li>18V &times; 5.0Ah = <strong>90Wh</strong> — and DeWalt's own spec sheet says 90Wh, because manufacturers rate energy at nominal</li>
+  <li>At $109 that is <strong>$1.211 per watt-hour</strong></li>
+</ul>
+
+<p>
+  The manufacturer already agrees with the arithmetic. It is only the marketing that
+  rounds up.
+</p>
+
+<h3>Three things this changes when you buy</h3>
+
+<ol class="takeaways">
+  <li>
+    <strong>Ignore the voltage on the box.</strong> 20V MAX, V20 and M18 are one class of
+    battery. 12V MAX and M12 are another. Nothing separates the members of a class.
+  </li>
+  <li>
+    <strong>Multi-packs are usually the cheapest energy.</strong> A two-pack rarely costs
+    twice a single, so the $/Wh drops sharply. It is the most reliable discount in the
+    category.
+  </li>
+  <li>
+    <strong>The biggest pack is rarely the best value.</strong> Flagship high-capacity
+    packs carry a premium per watt-hour. Two mid-size packs routinely beat one large one
+    on both cost and total energy.
+  </li>
+</ol>
+
+<p class="cta">
+  Every pack below is ranked on $/Wh, computed from nominal voltage, with multi-packs
+  divided by their total energy.
+</p>
+
+</article>
