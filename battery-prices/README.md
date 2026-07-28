@@ -40,7 +40,8 @@ battery-prices/
 ├── assets/og.png           社交分享卡片 1200×630
 ├── content/*.html          文章頁（title/description 寫喺開頭 HTML comment）
 ├── data/batteries.json     ⭐ 資料源（39 個型號,9 個平台）
-├── scripts/update_prices.py 驗證 + CSV 匯出/匯入 + PA-API stub
+├── data/history.jsonl      價格歷史（append-only,護城河）
+├── scripts/update_prices.py 驗證 + CSV 匯出/匯入 + 歷史 + PA-API stub
 └── scripts/build.py        生成 50 版 + sitemap + robots
 ```
 
@@ -51,8 +52,11 @@ battery-prices/
 python3 -m http.server 8000
 # → http://localhost:8000
 
-# 驗證資料
+# 驗證資料（含規格核實進度條）
 python3 scripts/update_prices.py --check
+
+# 睇價格歷史趨勢
+python3 scripts/update_prices.py --history
 
 # 打包部署（記住加 --base-url,唔加 canonical 會指去 example.com）
 python3 scripts/build.py --base-url https://yourdomain.com

@@ -26,6 +26,7 @@ import html
 import json
 import re
 import shutil
+import sys
 from datetime import date
 from pathlib import Path
 
@@ -233,6 +234,8 @@ def main() -> int:
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--base-url", default="https://example.com",
                     help="canonical origin, e.g. https://toolbatteryprices.com")
+    ap.add_argument("--require-real-data", action="store_true",
+                    help="fail instead of building sample prices (use in CI)")
     args = ap.parse_args()
     base = args.base_url.rstrip("/")
 
@@ -240,6 +243,14 @@ def main() -> int:
     css = (ROOT / "assets" / "style.css").read_text(encoding="utf-8")
     js = (ROOT / "assets" / "app.js").read_text(encoding="utf-8")
     data = json.loads((ROOT / "data" / "batteries.json").read_text(encoding="utf-8"))
+
+    # Placeholder prices reaching real visitors is the one failure that costs
+    # trust rather than traffic, so CI refuses to build them.
+    if args.require_real_data and data["meta"].get("price_source") == "sample":
+        print("ERROR --require-real-data set but price_source is still 'sample'.\n"
+              "      Run update_prices.py --import-csv with real listings first.",
+              file=sys.stderr)
+        return 1
 
     if DIST.exists():
         shutil.rmtree(DIST)

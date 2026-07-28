@@ -5,6 +5,10 @@
 
 呢個 repo 記錄可行性分析、成本、同實際執行計劃。
 
+## 👉 由邊度開始
+
+**[`LAUNCH.md`](LAUNCH.md)** — 出街清單。已完成嘅嘢 vs **只有你做得到嘅 7 項**（每項連埋指令）。
+
 ## 文件
 
 | 檔案 | 內容 |
@@ -13,6 +17,7 @@
 | 👉 [`docs/monitoring-directions.md`](docs/monitoring-directions.md) | **7 個具體方向** + 「佢自己做到點解要買你」嘅完整答案 + Buy vs Build 評分表 |
 | 👉 [`docs/price-comparison-sites.md`](docs/price-comparison-sites.md) | **diskprices.com 模式分析** — 真實收入數據、飽和地圖（實查）、仲有空白嘅方向 |
 | 👉 [`docs/traffic-plan.md`](docs/traffic-plan.md) | **流量計劃** — 域名選擇、三層流量模型、逐個渠道、90 日時間表 |
+| 👉 [`docs/launch-pack.md`](docs/launch-pack.md) | **現成文字包** — 目錄描述、Reddit 貼文、Show HN、email 草稿,貼上就用得 |
 | 👉 [`docs/market-check.md`](docs/market-check.md) | **市場覆查** — 實查確認/推翻嘅假設,同埋一個要你自己驗證嘅 |
 | 👉 [`docs/quiet-launch.md`](docs/quiet-launch.md) | **唔想發帖點算** — 零社交推廣路線、長尾 SEO、老實嘅收入上限 |
 | 🛠 [`battery-prices/`](battery-prices/) | **實際專案** — 電動工具電池 $/Wh 比價站（可跑） |

@@ -1,0 +1,61 @@
+name: Build and deploy battery-prices
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'battery-prices/**'
+      - '.github/workflows/deploy.yml'
+  workflow_dispatch:
+
+# Set this once, after you own the domain. Everything else follows from it:
+# canonical URLs, og:url, and sitemap.xml all read from this value.
+env:
+  BASE_URL: https://example.com
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: battery-prices
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      # Refuses to continue on a spec mismatch. A wrong watt-hour figure is
+      # worse than an outdated price: it discredits the one thing the site does.
+      - name: Validate dataset
+        run: python3 scripts/update_prices.py --check
+
+      # --require-real-data fails while price_source is still "sample", so
+      # placeholder prices cannot reach visitors.
+      - name: Build
+        run: python3 scripts/build.py --base-url "$BASE_URL" --require-real-data
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: battery-prices/dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
