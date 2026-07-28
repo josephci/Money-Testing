@@ -10,6 +10,7 @@
 | 檔案 | 內容 |
 |---|---|
 | 👉 [`docs/100-per-month.md`](docs/100-per-month.md) | **主計劃** — 零本金做到 $100/月，含 90 日執行表 |
+| 👉 [`docs/monitoring-directions.md`](docs/monitoring-directions.md) | **7 個具體方向** + 「佢自己做到點解要買你」嘅完整答案 + Buy vs Build 評分表 |
 | [`docs/ideas.md`](docs/ideas.md) | 16 個方法逐個分析（所需資本、所需時間、真實自動化程度） |
 | [`docs/action-plan.md`](docs/action-plan.md) | 30 日計劃（$10/月 版本，當熱身或者保底） |
 | [`docs/pitfalls.md`](docs/pitfalls.md) | 陷阱：提款門檻、手續費、稅、騙局 |
