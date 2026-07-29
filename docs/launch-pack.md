@@ -49,7 +49,9 @@ Tags: power tools, batteries, price comparison, dewalt, milwaukee, makita, ryobi
 
 **呢個係你嘅最高價值動作 —— 填表,冇人會同你講嘢。**
 
-一個週末,目標 30–50 個。搜以下字眼搵目錄：
+⚠️ **目標係 10–20 個高質、相關嘅目錄,唔係幾百個。** 大量提交去雜牌目錄係 2012 年前嘅打法,而家會扣分。分幾個星期慢慢做。
+
+搜以下字眼搵目錄,揀嗰啲真係有人用、同工具/DIY/比價相關嘅：
 
 ```
 "submit your startup"

@@ -7,6 +7,8 @@
 
 ## 👉 由邊度開始
 
+**[`docs/will-this-work.md`](docs/will-this-work.md)** — ⚠️ **先讀呢個。** 老實嘅成功率評估、下調過嘅預期、同一個 3 小時嘅測試方案。
+
 **[`LAUNCH.md`](LAUNCH.md)** — 出街清單。已完成嘅嘢 vs **只有你做得到嘅 7 項**（每項連埋指令）。
 
 ## 文件
@@ -17,6 +19,7 @@
 | 👉 [`docs/monitoring-directions.md`](docs/monitoring-directions.md) | **7 個具體方向** + 「佢自己做到點解要買你」嘅完整答案 + Buy vs Build 評分表 |
 | 👉 [`docs/price-comparison-sites.md`](docs/price-comparison-sites.md) | **diskprices.com 模式分析** — 真實收入數據、飽和地圖（實查）、仲有空白嘅方向 |
 | 👉 [`docs/traffic-plan.md`](docs/traffic-plan.md) | **流量計劃** — 域名選擇、三層流量模型、逐個渠道、90 日時間表 |
+| 🚨 [`docs/will-this-work.md`](docs/will-this-work.md) | **老實評估** — 成功率、零點擊搜尋風險、倖存者偏差、3 小時測試方案 |
 | 👉 [`docs/launch-pack.md`](docs/launch-pack.md) | **現成文字包** — 目錄描述、Reddit 貼文、Show HN、email 草稿,貼上就用得 |
 | 👉 [`docs/market-check.md`](docs/market-check.md) | **市場覆查** — 實查確認/推翻嘅假設,同埋一個要你自己驗證嘅 |
 | 👉 [`docs/quiet-launch.md`](docs/quiet-launch.md) | **唔想發帖點算** — 零社交推廣路線、長尾 SEO、老實嘅收入上限 |
