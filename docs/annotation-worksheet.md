@@ -194,7 +194,164 @@ Windows：用剪貼簿管理員（例如內建 `Win+V` 記錄）
 
 ---
 
-# 八、記住
+---
+
+# 八、⭐ 用範本會唔會俾人當咗係 AI？
+
+**唔會 —— 而且啱啱相反,範本係保護你。**
+
+要分清兩樣嘢：
+
+| | 會唔會俾人懷疑 |
+|---|---|
+| **結構一致** | ❌ 唔會。專業工作本來就有固定結構（醫生病歷、驗樓報告、律師意見書） |
+| **內容空泛** | ✅ **會。呢個先係 AI 嘅特徵** |
+
+## 評審實際上係睇乜嚟判斷「呢個人有冇做嘢」
+
+**似 AI 嘅：**
+
+- 「It's important to note that...」「Overall, both responses have merit」呢類套話
+- 文筆好靚但冇一個具體數字、冇一句引用
+- 乜都 hedge,永遠唔落判斷
+- 從來唔講「我查唔到」
+- **交得太快**（90 秒一題）
+
+**似人嘅：**
+
+- 引咗對方原文（`"was formed about 10,000 years ago"`）
+- 有具體數字（`50 million years, not 10,000`）
+- 有一條真實連結
+- 肯講「I could not verify this」
+- 文字平實,唔靚仔
+
+**你範本入面嘅括號,填嘅全部係第二類。** 每題引嘅句、查到嘅事實、貼嘅連結都唔同 —— 呢啲抄唔到、生成唔到。
+
+> **一個填滿具體內容嘅範本,睇落比一段流暢但空泛嘅文字更似人。**
+
+## 但可以做嘅小變化（唔使刻意)
+
+開頭唔好每題都一模一樣,輪住用：
+
+```
+Response A is more accurate.
+A is the better response.
+I chose A — B contains a factual error.
+A is correct; B is not.
+Both are close, but A is more accurate.
+A. B has one clear error.
+```
+
+偶然加一句你真實做過嘅嘢,呢個最似人：
+
+```
+I checked two sources for this because the first one was unclear.
+The figure in B is close but not exact.
+I initially thought B was right, but the source contradicts it.
+```
+
+⚠️ **唔好為咗「唔似 AI」而刻意寫得靚。** 靚文筆先係 AI 特徵。平實就啱。
+
+---
+
+# 九、英文唔好,點算？
+
+**呢個唔係問題,而且可能係你估錯咗個重點。**
+
+## 佢哋評緊嘅係你嘅判斷,唔係你嘅文筆
+
+平台請你,係要你**捉錯處**。你用簡單英文捉到,好過用靚英文捉唔到。
+
+**短句、簡單文法,完全冇問題。實際上仲好** —— 因為評分準則要嘅係「清楚」,唔係「優美」。
+
+## ⭐ 更重要：揀中文任務
+
+你嘅香港/中文雙語入口本身就係加價項目（$30–75/小時 vs 英文 $20–40）。
+
+**喺嗰邊,你嘅語言係資產,唔係負擔。** 有得揀就揀嗰啲。
+
+## 簡單英文句型庫（照抄,文法全部啱）
+
+### 講判斷
+```
+A is more accurate.
+B has a factual error.
+Both responses are correct.
+```
+
+### 講相同部分
+```
+Both responses say [X].
+Both give the same answer for [X].
+The two responses agree on [X].
+```
+
+### 引用對方
+```
+B says "[原文]".
+A states that "[原文]".
+```
+
+### 講錯咗
+```
+This is wrong.
+This is not correct.
+The date is wrong.
+The number is too high.
+```
+
+### 講正確係咩
+```
+The correct figure is [X].
+It is actually [X].
+The real number is [X].
+NASA says it is [X].
+```
+
+### 講來源
+```
+Source: NASA — [連結]
+I checked NASA. It says [X].
+According to USGS, [X].
+```
+
+### 查唔到
+```
+I could not find a source for this.
+I searched but could not verify this claim.
+```
+
+## 用呢啲砌一個完整答案
+
+```
+A is more accurate.
+
+Both responses say the mountain is Mount Everest at 8,849 m.
+B also says it "was formed about 10,000 years ago". This is wrong.
+The collision started about 50 million years ago.
+
+A does not add any claim I could not check.
+
+Source: USGS — pubs.usgs.gov/gip/dynamic/himalaya.html
+```
+
+**每一句都係簡單句。冇一個難字。** 呢個係一個完整合格嘅答案。
+
+## 語言工具：邊啲得,邊啲唔得
+
+| | |
+|---|---|
+| ✅ 查字典 / 查一個字咩意思 | 得。呢個係理解,唔係代做 |
+| ✅ 拼字檢查 | 得 |
+| ✅ 基本文法檢查（紅線嗰種） | 得 |
+| ⚠️ AI 幫你「改順啲」 | **唔建議** —— AI 潤色出嚟嘅文,正正就係評審用嚟識別 AI 嘅特徵 |
+| ❌ AI 幫你寫解釋 / 揀答案 | **唔得。呢個就係佢哋買緊嘅嘢** |
+
+**你用簡單英文自己寫,比用 AI 潤到靚安全好多 —— 亦都真係咁。**
+
+---
+
+# 十、記住
 
 **第 1 題 20–30 分鐘係正常。第 20 題 5–8 分鐘都係正常。**
 
