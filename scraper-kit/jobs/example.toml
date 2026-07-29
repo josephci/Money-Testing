@@ -1,0 +1,34 @@
+# 一個客 = 一個咁嘅檔案。複製呢個,改名,改內容。
+#
+# 有 # 嘅行係註解,程式唔會理,你可以隨便改。
+# 所有文字一定要用 " " 包住。
+
+# ── 要抓邊一版 ──────────────────────────────────────────────
+url = "https://quotes.toscrape.com/"
+
+# ── 每一行資料嘅外殼 ────────────────────────────────────────
+# 唔知填咩就跑：  python3 scrape.py --inspect "你條 URL"
+row_selector = "div.quote"
+
+# ── 每一欄要抽咩 ────────────────────────────────────────────
+# 左邊 = Excel 嘅欄名(你自己改,客要中文都得)
+# 右邊 = 喺嗰行入面搵邊件嘢
+#
+#   "span.text"        → 攞文字
+#   "a@href"           → 攞連結（@href）
+#   "img@src"          → 攞圖片網址（@src）
+[columns]
+quote  = "span.text"
+author = "small.author"
+link   = "a@href"
+
+# ── 其他設定 ────────────────────────────────────────────────
+[options]
+pages         = 3                  # 抓幾多版
+page_param    = "page/{n}/"        # 第 2 版點砌 URL,{n} 會變成 2、3、4...
+delay_seconds = 2                  # 每版之間等幾秒（唔好調低過 1,會俾人封）
+output        = "out/example.csv"  # 出邊度
+also_xlsx     = true               # 順便出多份 .xlsx 俾客
+
+# 只有喺客真係擁有嗰個網站、或者有書面授權嗰陣先開。
+# i_have_permission = true

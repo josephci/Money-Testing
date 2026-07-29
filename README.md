@@ -9,7 +9,9 @@
 
 **[`docs/will-this-work.md`](docs/will-this-work.md)** — ⚠️ **先讀呢個。** 老實嘅成功率評估、下調過嘅預期、同一個 3 小時嘅測試方案。
 
-**[`LAUNCH.md`](LAUNCH.md)** — 出街清單。已完成嘅嘢 vs **只有你做得到嘅 7 項**（每項連埋指令）。
+**[`LAUNCH.md`](LAUNCH.md)** — 電池站出街清單。已完成嘅嘢 vs **只有你做得到嘅 7 項**。
+
+**[`scraper-kit/README.md`](scraper-kit/README.md)** — 🛠 **想快啲見到第一蚊就由呢度開始。** 改設定檔就跑得嘅抓資料工具,唔使寫 code。
 
 ## 文件
 
@@ -24,6 +26,7 @@
 | 👉 [`docs/launch-pack.md`](docs/launch-pack.md) | **現成文字包** — 目錄描述、Reddit 貼文、Show HN、email 草稿,貼上就用得 |
 | 👉 [`docs/market-check.md`](docs/market-check.md) | **市場覆查** — 實查確認/推翻嘅假設,同埋一個要你自己驗證嘅 |
 | 👉 [`docs/quiet-launch.md`](docs/quiet-launch.md) | **唔想發帖點算** — 零社交推廣路線、長尾 SEO、老實嘅收入上限 |
+| 🛠 [`scraper-kit/`](scraper-kit/) | **抓資料工具包** — 改設定檔就跑得,唔使寫 code。含 Fiverr 實戰包 |
 | 🛠 [`battery-prices/`](battery-prices/) | **實際專案** — 電動工具電池 $/Wh 比價站（可跑） |
 | [`docs/ideas.md`](docs/ideas.md) | 16 個方法逐個分析（所需資本、所需時間、真實自動化程度） |
 | [`docs/action-plan.md`](docs/action-plan.md) | 30 日計劃（$10/月 版本，當熱身或者保底） |
