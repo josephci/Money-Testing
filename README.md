@@ -20,6 +20,7 @@
 | 👉 [`docs/monitoring-directions.md`](docs/monitoring-directions.md) | **7 個具體方向** + 「佢自己做到點解要買你」嘅完整答案 + Buy vs Build 評分表 |
 | 👉 [`docs/price-comparison-sites.md`](docs/price-comparison-sites.md) | **diskprices.com 模式分析** — 真實收入數據、飽和地圖（實查）、仲有空白嘅方向 |
 | 👉 [`docs/traffic-plan.md`](docs/traffic-plan.md) | **流量計劃** — 域名選擇、三層流量模型、逐個渠道、90 日時間表 |
+| ⭐ [`docs/annotation-worksheet.md`](docs/annotation-worksheet.md) | **做嘢時開住呢份** — 每題 6 步、只查唔同、停止規則、填空範本、快捷鍵設定 |
 | ⭐ [`docs/annotation-writing.md`](docs/annotation-writing.md) | **點寫解釋** — 四段骨架、差vs好對比、六個扣分位、難處理情況點寫 |
 | ⭐ [`docs/annotation-apply.md`](docs/annotation-apply.md) | **AI 標註點申請** — 平台對比、香港可唔可以、入門測試點準備 |
 | 🚨 [`docs/two-directions.md`](docs/two-directions.md) | **搬磚做量 vs 信息差** — 深入研究:邊個唔存在、邊個一早就啱、點解兩者會合流 |

@@ -6,6 +6,8 @@
 
 ---
 
+> 🛠 **做緊嘢想快啲？** 開 [`annotation-worksheet.md`](annotation-worksheet.md) —— 嗰份係操作版,呢份係原理版。
+
 # 一、好解釋嘅四段骨架
 
 每次都跟呢個次序,你就唔會漏嘢：
