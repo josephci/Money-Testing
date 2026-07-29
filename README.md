@@ -20,6 +20,7 @@
 | 👉 [`docs/monitoring-directions.md`](docs/monitoring-directions.md) | **7 個具體方向** + 「佢自己做到點解要買你」嘅完整答案 + Buy vs Build 評分表 |
 | 👉 [`docs/price-comparison-sites.md`](docs/price-comparison-sites.md) | **diskprices.com 模式分析** — 真實收入數據、飽和地圖（實查）、仲有空白嘅方向 |
 | 👉 [`docs/traffic-plan.md`](docs/traffic-plan.md) | **流量計劃** — 域名選擇、三層流量模型、逐個渠道、90 日時間表 |
+| ⭐ [`docs/annotation-apply.md`](docs/annotation-apply.md) | **AI 標註點申請** — 平台對比、香港可唔可以、入門測試點準備 |
 | 🚨 [`docs/two-directions.md`](docs/two-directions.md) | **搬磚做量 vs 信息差** — 深入研究:邊個唔存在、邊個一早就啱、點解兩者會合流 |
 | 🚨 [`docs/ai-saturation.md`](docs/ai-saturation.md) | **人人用 AI 接單,咁點爭** — 平台收縮數據、下調過嘅機會、三個真實優勢 |
 | 🚨 [`docs/other-options.md`](docs/other-options.md) | **$50/月 嘅其他路線** — 按「邊個帶買家嚟」分類,機會 vs 被動程度嘅取捨 |
