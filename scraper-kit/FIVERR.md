@@ -4,6 +4,11 @@
 
 **目標：$50/月 = 2 單 $25,或者 2 個月費客。**
 
+> ⚠️ **落手前讀 [`../docs/ai-saturation.md`](../docs/ai-saturation.md)。**
+> Fiverr 買家按年跌 13.6%,賣家 6 年多咗 4 倍,而「簡單資料處理」正正係被 AI 壓價最勁嗰類。
+> **你嘅優勢唔係識做（人人都識),係識推單、會核對、肯長期負責。**
+> 下面全部文字已經按呢個定位寫。
+
 ---
 
 # 1. 開 gig（一次過,約 1 個鐘）
@@ -56,7 +61,13 @@ Not sure if your page works? Message me the link first — I'll check for
 free.
 ```
 
-**⚠️ 最後嗰句好重要。** 「先問我,免費幫你睇」= 你可以喺落單前篩走做唔到嘅,唔會攞差評。
+**⚠️ 呢段有三處係特登寫嘅,唔好刪：**
+
+| 句 | 點解 |
+|---|---|
+| 「I'll tell you straight away rather than take the order and miss it」 | 大部分用 AI 嘅賣家問完 AI「做唔做到」就接單,然後撞正 JS 網站交唔到貨。**肯講「做唔到」係而家最強嘅信任訊號** |
+| 「I don't scrape logins / personal data / robots-blocked sites」 | 喺一個人人講「乜都做到」嘅市場,**講清楚你唔做乜反而突出** |
+| 「Message me the link first — I'll check for free」 | 你可以喺落單前篩走做唔到嘅,唔會攞差評 |
 
 ## 定價
 
@@ -130,7 +141,11 @@ Let me know if you'd like anything adjusted.
 
 # 3. ⭐ 轉月費（$50/月 嘅關鍵）
 
-**交貨之後**,加多一句。就係呢一句令你由「換時間」變成「經常性收入」：
+**第一單交完就提,唔好等第二單。**
+
+一次性單價會繼續俾 AI 壓,**月費客係你唯一唔受壓價影響嘅收入** —— 亦係 AI 助手用家做唔到嘅嘢（佢哋交完就走,個網站改版就冇人修）。
+
+加呢一句：
 
 ```
 One thing that might be useful — this page changes over time. I can run
@@ -192,6 +207,8 @@ python3 scrape.py jobs/client-a.toml
 | 接你未 `--inspect` 過嘅單 | 交唔到貨 = 差評 = 之後冇單 |
 | 為咗接單而開 `i_have_permission` | 法律風險,唔值 $30 |
 | 一開始定 $50+ | 新帳戶冇評價,冇人肯試 |
+| 同人鬥平 | 你鬥唔過 AI 農場。鬥可靠 |
+| 淨係擺 Fiverr | Fiverr 買家跌緊。**同一份 gig 順手擺埋上 Upwork** |
 | 承諾 12 小時內交 | 做唔到就死。寫 24 小時,15 小時交,客會驚喜 |
 | 交貨前唔開個 .xlsx 望 | **最常見嘅低級失手** |
 
