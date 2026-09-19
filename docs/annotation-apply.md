@@ -8,12 +8,30 @@
 
 我本來以為地區限制會封死你（好多呢類平台只收美/英/加/澳）。查落唔係咁,而且情況比預期好好多。
 
-**DataAnnotation 有兩個專門招中文人嘅頁：**
+**DataAnnotation 有專門招中文人嘅頁。2026-09 再查,入口比原本記錄多：**
 
-- `dataannotation.tech/hongkong-bilingual` ← **香港專頁**
-- `dataannotation.tech/chinese-bilingual-en`
+| 入口 | |
+|---|---|
+| `dataannotation.tech/hongkong-bilingual` | **香港專頁（中文版）** |
+| `dataannotation.tech/hongkong-bilingual-en` | 🆕 香港專頁（英文版） |
+| `dataannotation.tech/chinese-bilingual` | 🆕 中文雙語（中文版） |
+| `dataannotation.tech/chinese-bilingual-en` | 中文雙語（英文版） |
 
-LinkedIn 亦有佢哋喺 **Hong Kong SAR** 招 AI Trainer 嘅招聘。
+佢仲有 `/taiwan-bilingual`、`/vietnamese-bilingual-en` 等等,**即係一個有系統嘅語言招募目錄,唔係一次性嘅頁**。
+
+LinkedIn 亦有佢哋喺 **Hong Kong SAR** 招 AI Trainer 嘅招聘,而且唔止一種職位名：
+`Bilingual AI Trainer` · `Bilingual Teacher - AI Trainer` · `ESL Instructor - AI Trainer` · `AI Trainer`
+
+## ⚠️ 2026-09 查到兩樣本文原本冇記低嘅嘢
+
+**1. LinkedIn 嘅職位要求寫住「學士學位（已完成或就讀中）」。**
+
+本文原本只講 Outlier 要副學士,冇提 DataAnnotation 有學位要求。
+⚠️ 但**招聘廣告嘅要求同直接喺網站報名嘅要求未必一樣** —— 呢點要你自己開個頁核實。
+
+**2. 有來源描述嘅流程係「候補名單」制**：排隊 → 收到邀請 → 約 15 分鐘驗身份 + 做一個練習任務。
+
+**同本文下面寫嘅「報名 → 1 個鐘 Starter Assessment」唔同。** 可能係改咗流程,或者唔同入口唔同流程。**以你開頁見到嗰個為準。**
 
 ## 而中文/廣東話係加價項目
 
