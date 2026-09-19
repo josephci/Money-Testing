@@ -24,7 +24,7 @@
 | 👉 [`docs/traffic-plan.md`](docs/traffic-plan.md) | **流量計劃** — 域名選擇、三層流量模型、逐個渠道、90 日時間表 |
 | ⭐ [`docs/annotation-worksheet.md`](docs/annotation-worksheet.md) | **做嘢時開住呢份** — 每題 6 步、只查唔同、停止規則、填空範本、快捷鍵設定 |
 | ⭐ [`docs/annotation-writing.md`](docs/annotation-writing.md) | **點寫解釋** — 四段骨架、差vs好對比、六個扣分位、難處理情況點寫 |
-| ⭐ [`docs/annotation-apply.md`](docs/annotation-apply.md) | **AI 標註點申請** — 平台對比、香港可唔可以、入門測試點準備 |
+| ⭐ [`docs/annotation-apply.md`](docs/annotation-apply.md) | **AI 標註點申請** — 平台對比、香港可唔可以、入門測試點準備、**⚠️ 2026-09 需求覆查（市場裂開兩半、廣東話企啱邊、風險判斷推翻重寫）** |
 | 🚨 [`docs/two-directions.md`](docs/two-directions.md) | **搬磚做量 vs 信息差** — 深入研究:邊個唔存在、邊個一早就啱、點解兩者會合流 |
 | 🚨 [`docs/auto-arbitrage.md`](docs/auto-arbitrage.md) | **套利全景** — 邊啲仲 work、要幾多本金先交到月費、套利利潤嘅三個來源、⭐ 迎新優惠（唯一低本金又數學保證嗰個）、五個偽套利陷阱、🎮 遊戲打金／CS2 皮膚／空投實數 |
 | 🚨 [`docs/app-store.md`](docs/app-store.md) | **寫 App 定唔寫?** — App Store 唔係飽和係集中（90% 收入去頭 1%）、11 個訂戶 vs 1 個客、邊啲 niche 仲有肉、四格飽和度自測 |

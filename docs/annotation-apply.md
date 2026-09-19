@@ -57,6 +57,152 @@ DataAnnotation 嘅入門測試有幾條線。**Coding 線**測嘅係：
 
 ---
 
+---
+
+# ⚠️ 2026-09 覆查 —— 需求仲喺唔喺度?
+
+**簡短答案：喺,而且市場係大緊。但個市場分裂咗兩半,而你必須企啱邊。**
+
+**同時,呢次覆查推翻咗本文原本嘅風險判斷** —— 下面第 4 節。
+
+---
+
+## 1. 整體市場：大緊,唔係縮緊
+
+| | |
+|---|---|
+| AI 資料標註市場（2026） | **US$23.2 億** → 2031 年 US$65.3 億 |
+| 年複合增長 | **22.95%** |
+| 另一個較闊嘅定義 | $63 億（2026）→ $171 億（2030）,CAGR 28.4% |
+
+**RLHF 直接推高咗對「有判斷力嘅評審」嘅需求** —— 而且服務合約由「計量」轉向「計專業深度」。
+
+## 2. ⚠️ 但個市場裂開咗兩半
+
+```
+        通用標註（generic）              專家標註（expert）
+        ─────────────────              ──────────────────
+        被自動化、被壓價                 爆炸性增長
+        xAI 裁咗 500 個 generalist       Mercor: $760M (2025尾)
+        $15/hr                            → $2B ARR (2026年6月)
+                                          $500+/hr（醫學/法律/STEM）
+```
+
+- Surge AI 2024 年尾收入已突破 **$10 億,超越 Scale**
+- 各大 lab 開始**直接請 PhD 同行業專家**寫推理過程、評分
+- **薪酬跨度已經由 $15/hr 拉到 $500+/hr**
+
+> ### 所以「AI 標註仲有冇需求」呢條問題問得唔夠準確。
+> **正確問法係：「我企喺被自動化嗰邊,定係被搶嗰邊?」**
+
+## 3. 🚨 Scale AI 出咗事 —— 直接影響本文推薦過嘅 Outlier
+
+2025 年 6 月 Meta 入股 Scale AI **49%**,創辦人被挖去 Meta。
+
+**結果：Scale 幾乎一夜之間失去 Google、OpenAI、Microsoft、xAI 呢幾個客。**
+
+**而 Outlier 就係 Scale 營運嘅。** 本文原本評佢 ⭐⭐ —— **而家應該當佢係高風險,唔好當主力。**
+
+## 4. 🔧 推翻返本文原本嘅風險判斷
+
+> 本文原本寫：「主要風險唔係做唔到,係**入唔到平台**。」
+>
+> **⚠️ 呢句而家唔啱。真正嘅風險係：入到之後冇嘢做。**
+
+有份覆查讀咗 **41 條 Reddit thread、7,514 個留言、2,313 個唔同帳戶**（2023-07 至 2026-07）,每個負面指控都要至少 5 個帳戶／3 條 thread 佐證。2026 年嘅結果：
+
+| 2026 年嘅投訴 | 佐證 |
+|---|---|
+| 有一段長時間**完全冇嘢做** | 10 個帳戶／6 條 thread |
+| **突然失去項目、Slack 頻道、甚至成個平台** | 8 個帳戶／5 條 thread |
+
+而且各平台都明講：**工作量睇客戶需求,唔保證時數。**
+
+**→ 實際影響：本文「一次過申請三個」嘅建議由『保險』升級成『必要』。而且申請完唔好停,有平台批就保住個帳戶。**
+
+## 5. ⚠️ 薪酬數字有衝突,唔好淨信一個來源
+
+| 來源講法 | |
+|---|---|
+| DataAnnotation：通用 $25–50、coding $75–150 | 平台標價 |
+| DataAnnotation 上限得 **$15–23/hr** | 另一份覆查 |
+
+**兩個都係 2026 年嘅來源,直接矛盾。** 合理理解：**標價係項目標價,實際到手因為搵任務／等任務／無償測試而低好多** —— 同本文原本講「實際可能 $20–25」一致。
+
+**落手前自己用第一個月實測,唔好用標價做預算。**
+
+---
+
+# ✅ 但最重要嗰段：廣東話唔喺被裁嗰半邊
+
+呢個先係整份覆查最值得知嘅嘢。
+
+## 廣東話係學術上公認嘅 low-resource language
+
+| 查到嘅實況 | |
+|---|---|
+| 現況 | **冇大型原生粵語推理語料（reasoning traces）可以攞嚟訓練** |
+| 語料規模變化 | 由 1 億 token **升到 5 億+** —— 即係**有人喺度投錢做緊** |
+| 2026 年新研究 | CantoneseLLM v2、HKCanto-Eval、CantoNLU 等基準陸續出 |
+| 香港本地 | **Votee AI 正喺度做粵語 LLM**（Fortune,2026-08) |
+| 媒體定性 | SCMP：「Mandarin is replacing Cantonese. **Offbeat AI fights back as Big Tech looks away**」 |
+
+> 而且原文明講：**捕捉粵語嘅方言、俚語同文化語境,需要同母語者及語言學家持續協作。**
+>
+> **呢個就係「自動化唔到」嘅定義。**
+
+## 實際招聘同價錢（2026）
+
+| 類型 | 時薪 |
+|---|---|
+| Cantonese AI 相關職位 | **147 個空缺,$15–37/hr** |
+| 粵語轉錄 | 平均 **$22.56**（多數 $21.15–23.80） |
+| **自由身粵語工作** | 平均 **$47.71**（多數 $24.28–61.78） |
+
+⚠️ **一個要避嘅陷阱**：GoTranscript 類轉錄按「音頻分鐘」計 $0.50–1.20 —— 但打一分鐘音頻通常要 **4–6 分鐘**。換算實際時薪得 **$5–18**。**唔好接按音頻分鐘計價嘅純轉錄。**
+
+---
+
+# 📌 覆查後嘅修訂建議
+
+| | 原本 | **修訂** |
+|---|---|---|
+| 主要風險 | 入唔到平台 | **入到之後斷糧** |
+| 申請幾多個 | 三個（保險） | **三個以上（必要）** |
+| Outlier | ⭐⭐ | 🚨 **高風險（Scale 失客）** |
+| 走邊條線 | 語言線 | ✅ **更加確定 —— 廣東話係 low-resource,唔喺被自動化嗰半** |
+| 時薪預期 | $30–75 | **用 $20–25 做預算,$30+ 當 upside** |
+| $50/月 成功率 | 70–80% | **65–75%**（入到嘅機會冇變,但「持續有工」拉低咗） |
+
+## 平台名單更新
+
+| 平台 | 2026-09 狀態 |
+|---|---|
+| **DataAnnotation** | ✅ 仍然主攻（香港雙語頁）,但預咗有任務荒 |
+| **Alignerr** | 🆕 **新增 —— 2026-09 報稱約 $80/hr** |
+| **Mercor** | 🆕 升級 —— **2026-09 最高,約 $112/hr**,但要專業資格 |
+| **Surge AI** | 🆕 新增 —— 已超越 Scale,值得留意有冇公開招募 |
+| Outlier | 🚨 降級 —— Scale 失客 |
+| Appen / Toloka | ✅ 保底不變 |
+
+> ## 一句總結呢次覆查
+>
+> **需求冇消失,係搬咗位。**
+> **通用英文標註嗰半邊喺度縮;你要企嗰半邊 —— 廣東話 —— 喺度有人投錢建語料、出基準、開公司。**
+>
+> **你嘅資格唔係「識做標註」,係「你係識廣東話嘅人」。呢樣嘢 2026 年仲係稀缺。**
+
+## 資料來源（2026-09 覆查）
+
+- [AI Data Labeling Market Size & Forecast — Mordor Intelligence](https://www.mordorintelligence.com/industry-reports/ai-data-labeling-market) · [Data Collection And Labeling Market — Grand View Research](https://www.grandviewresearch.com/industry-analysis/data-collection-labeling-market)
+- [Data Labeling Market 2026: Experts and AI Sourcing — Pebblous](https://blog.pebblous.ai/report/expert-data-labor-market-2026/en/) · [How AI Labs Are Hiring People to Train Models 2026 — Pin](https://www.pin.com/blog/ai-labs-hiring-train-models/)
+- [Is DataAnnotation Legit? Reviews & 2026 Reddit Analysis — Annotation Academy](https://annotation.academy/blog/is-dataannotation-tech-legit) · [Data Annotation Jobs 2026: Are They Worth Your Time? — CareerSeeker](https://careerseeker.ai/data-annotation-jobs/)
+- [CantoneseLLM v2: Reasoning in a Low-Resource Language — arXiv](https://arxiv.org/abs/2609.06970) · [HKCanto-Eval — arXiv](https://arxiv.org/pdf/2503.12440)
+- [Hong Kong's Votee AI is taking on English and Mandarin's AI dominance with a Cantonese model — Fortune](https://fortune.com/2026/08/27/votee-ai-hong-kong-cantonese-llm-pak-sun-ting-ceo/) · [Mandarin is replacing Cantonese. Offbeat AI fights back — SCMP](https://www.scmp.com/news/china/science/article/3347975/mandarin-replacing-cantonese-offbeat-ai-fights-back-big-tech-looks-away)
+- [Cantonese AI Jobs — ZipRecruiter](https://www.ziprecruiter.com/Jobs/Cantonese-Ai) · [Freelance Cantonese Speaker Jobs — ZipRecruiter](https://www.ziprecruiter.com/Jobs/Freelance-Cantonese-Speaker)
+
+---
+
 # 平台對比
 
 | 平台 | 地區 | 入門難度 | 時薪 | 你嘅適合度 |
