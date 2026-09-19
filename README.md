@@ -26,6 +26,7 @@
 | ⭐ [`docs/annotation-writing.md`](docs/annotation-writing.md) | **點寫解釋** — 四段骨架、差vs好對比、六個扣分位、難處理情況點寫 |
 | ⭐ [`docs/annotation-apply.md`](docs/annotation-apply.md) | **AI 標註點申請** — 平台對比、香港可唔可以、入門測試點準備 |
 | 🚨 [`docs/two-directions.md`](docs/two-directions.md) | **搬磚做量 vs 信息差** — 深入研究:邊個唔存在、邊個一早就啱、點解兩者會合流 |
+| 🚨 [`docs/auto-arbitrage.md`](docs/auto-arbitrage.md) | **「Auto 搬磚」2026 實況** — 邊啲仲 work、要幾多本金先交到月費、邊啲係騙局／香港犯法 |
 | 🚨 [`docs/ai-saturation.md`](docs/ai-saturation.md) | **人人用 AI 接單,咁點爭** — 平台收縮數據、下調過嘅機會、三個真實優勢 |
 | 🚨 [`docs/other-options.md`](docs/other-options.md) | **$50/月 嘅其他路線** — 按「邊個帶買家嚟」分類,機會 vs 被動程度嘅取捨 |
 | 🚨 [`docs/will-this-work.md`](docs/will-this-work.md) | **老實評估** — 成功率、零點擊搜尋風險、倖存者偏差、3 小時測試方案 |
