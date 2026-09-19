@@ -16,6 +16,8 @@
 | **賺費率** —— 資金費率 / basis 套利 | **本金** | ✅ 仲 work,但溢價縮到得返皮 | 要 US$4,800+ |
 | **賺優惠** —— 銀行／信用卡迎新 | 對手嘅推廣預算 | ✅ **最抵,但有次數上限** | ⭐ **兩張卡 = 一年 Pro** |
 | **賭錢套利** —— 體育博彩 | 莊家反應慢 | ⚠️ 每注 1–2% | ❌ **香港係刑事罪** |
+| **遊戲打金** —— 搬磚原意 | 你隻手 | ⚠️ 有錢但**時薪 US$1–4** | ❌ 比標註低 10 倍 |
+| **空投** —— 積分制 | 協議嘅代幣 | ⚠️ 88% 跌價、40% 被濾走 | ❌ 變相要鎖本金 |
 | **賺時薪差** —— 人手搬磚(標註) | 你隻手 | ✅ | ✅ 1 個鐘就夠交 Pro |
 
 ---
@@ -319,6 +321,139 @@ Mox (HK$1,000) + 渣打 (HK$1,000) = HK$2,000
 
 ---
 
+# 🎮 遊戲同空投
+
+「搬磚」呢個詞本來就係由遊戲嚟。所以呢條問得好 —— 但三樣嘢查完，結論出奇地一致。
+
+---
+
+## A. 遊戲打金搬磚 —— 真係有錢，但時薪係致命傷
+
+2026 年實況（主要係國服端遊）：
+
+| 遊戲 | 玩法 | 月收入 |
+|---|---|---|
+| 夢幻西遊 | 單開，每日 1–2 個鐘 | **RMB 500–800** |
+| 夢幻西遊 | 五開協作，日均 100+ | RMB 1,000–3,000 |
+| DNF | 風暴幽城，多角色分流 | 單角色 180–220 萬金幣／日 |
+
+### ⭐ 但換成時薪就即刻見真章
+
+```
+單開：月 RMB 500–800 ≈ US$70–112
+      每日 1–2 鐘 × 30 = 30–60 個鐘
+                    ↓
+              US$1.2–3.7 / 小時
+```
+
+| | 時薪 | 交 Pro（US$20）要幾耐 |
+|---|---|---|
+| **遊戲搬磚** | **US$1–4** | **10 個鐘** |
+| **AI 標註** | **US$25–31** | **45 分鐘** |
+
+**同一個月費，一個要你 10 個鐘，一個要你 45 分鐘。差 13 倍。**
+
+### 仲有三個成本冇計入上面
+
+- ❌ **腳本 = 封號。** 網易 2026 年已封 2 萬幾個異常帳號，對腳本打擊力度空前。**即係話「auto」嗰部分正正係佢哋專登花錢封嗰樣**
+- ❌ 點卡／電費／多開要多部機
+- ❌ 香港人做國服要處理實名、手機號、提現通道
+
+> 官方講法都好白：「除非技術頂級、渠道穩固，否則遊戲搬磚最合理嘅定位就係一個靠譜副業。」
+> —— 而「副業」嘅意思就係：**唔自動，換時間。**
+
+---
+
+## B. CS2 皮膚跨平台差價 —— 睇落最誘人嗰個
+
+呢個數真係幾靚（2026-09-08）：
+
+| | |
+|---|---|
+| 匹配到嘅套利路線 | **1,577 條** |
+| **中位回報** | **21.6%** |
+| 最佳 | 25.0% |
+| 實例 | AWP Gungnir：Youpin $11,532 買 → Skinport $14,542 賣，扣 6% 手續費，淨 **18.5%** |
+
+各平台抽成：Valve **15%** · Skinport 6–8% · CSFloat 2% · BUFF 1.5% · C5Game 1.5% · Youpin **1%**
+
+### ❓ 咁點解會有 21.6% 差價擺喺度冇人執？
+
+因為佢**根本唔係套利**。用返本文自己嗰條準則：
+
+> **兩腳係咪同一刻鎖死？**
+
+**唔係。** 中間隔住：
+
+1. **Steam 7 日交易冷卻期** —— 你買咗要等一個禮拜先郁得
+2. **BUFF／Youpin 要中國實名 + 手機號 + 支付寶** —— 香港人過唔到呢堵牆
+3. **跨境資金** —— 人民幣一邊、歐元／美金另一邊
+4. **上面個例子要 US$11,500 本金** —— 唔係細注玩到
+
+而最要命嗰樣：
+
+> ⚠️ **CS2 皮膚總市值由高位跌咗接近 50%**（2026 年 6 月約 $70.4 億）。
+>
+> 你揸住貨嗰 7 日，市場可以郁。**嗰 21.6% 唔係套利利潤，係「你肯揸住存貨 + 過得到嗰堵牆」嘅報酬。**
+
+**定性：做生意（存貨生意），唔係套利。** 同零售套利同一格。
+
+---
+
+## C. 空投 —— 已經變咗質
+
+### 而家實際係咩
+
+| | |
+|---|---|
+| 成功 farmer 每個優質項目 | $500–5,000 |
+| ⚠️ **但 88% 代幣喺 3 個月內跌價** | |
+| 85% 新空投會過濾 sybil farm | |
+| **LayerZero ZRO** | 208 萬個錢包入面**濾走 803,093 個** |
+| **Linea** | 130 萬個入面濾走約 **517,000 個（約 40%）** |
+
+### ⭐ 兩個結構性改變，直接殺死「auto 空投」
+
+**1. 「一次快照」式空投基本上死咗。** 而家係**持續積分制**，按你**資金擺咗幾耐**同互動多樣性計分。
+
+> 即係話 —— **佢已經唔係空投，係一個「唔保證回報、唔知期限」嘅定存。**
+>
+> 你免費借錢俾個協議做 TVL，換一個可能係零嘅回報。
+> **對比：新資金定存 5%，保證，有期限。**
+
+**2. 多開錢包 = 佢哋專登請人嚟捉嗰樣。** 偵測方法已經係 ML 聚類 + 出資圖譜分析 + 時序相關 + gas 指紋 + 行為聚類。
+
+**而「auto 搬磚」喺空投呢個語境入面，意思就係多開錢包跑腳本 —— 即係被濾走嗰 40%。**
+
+---
+
+# 🔁 所以三樣嘢加埋，講緊同一件事
+
+| 領域 | 「自動」嗰部分實際遭遇 |
+|---|---|
+| 體育博彩 | 莊家偵測 bot → 限注封戶 |
+| **遊戲打金** | **網易封 2 萬幾個腳本帳號** |
+| **空投** | **LayerZero 濾走 80 萬個錢包** |
+| 標註平台 | MTurk：用 script 做嘢 → 停權沒收餘額 |
+| 跨交易所搬磚 | 唔使人封，機構速度直接輾死你 |
+
+> ## 第三次出現嘅同一條定律
+>
+> **唔係「自動化好難做」。**
+> **係每一個領域，對手都專登花錢請人整嘢嚟封「自動」嗰部分 —— 因為佢哋嘅生意模式就係靠你唔自動。**
+
+### 一句總結呢章
+
+**遊戲同空投唔係新方向，佢哋係「用時間換錢」同「用本金換錢」呢兩條舊路嘅另一個包裝 —— 而且係包裝得最差嗰兩個：**
+
+- **遊戲**：時薪 US$1–4，比標註低 10 倍
+- **空投**：要鎖資金 + 88% 跌價 + 40% 被濾走，比定存差
+
+> 💡 **唯一合理嘅情況：你本身就想玩嗰隻遊戲。**
+> 咁就係「玩之餘有錢收」，唔係「搵錢方法」。呢個分別好大 —— 前者時薪計法唔適用，後者計落唔值。
+
+---
+
 # ✅ 得返嗰條路（你已經有）
 
 你問嘅其實係：**「有冇方法唔使我做嘢都交到個月費。」**
@@ -360,6 +495,9 @@ Max 5× ($100)    = 每個月 3.5 個鐘
 | P2P USDT | ⚠️ | 高 | ❌ | ❌ 要牌 |
 | **信用卡／銀行迎新** | ✅ **數學保證** | **$0**（用本身簽賬） | ❌ | ⭐ **2 張 = 一年 Pro** |
 | 新資金定存 | ✅ ~5% | $4,800↑ | ⭐⭐⭐⭐⭐ | ⏸ 等有本金 |
+| 遊戲打金搬磚 | ⚠️ US$1–4/hr | 低 | ❌ 腳本即封 | ❌ 時薪太低 |
+| CS2 皮膚跨平台 | ⚠️ 21.6% 但唔係套利 | **$11,500↑** | ❌ | ❌ 存貨生意 |
+| 空投 farming | ⚠️ 88% 跌價 | 要鎖資金 | ❌ 多開即被濾 | ❌ |
 | 偽套利（A/H 股、零售套利） | ❌ 唔係套利 | — | — | ❌ |
 | **標註（搬時薪差）** | ✅ | **$0** | ❌ | ⭐ **45 分鐘 = Pro** |
 | **Downgrade** | ✅ | $0 | ⭐⭐⭐⭐⭐ | ⭐ 即時 |
@@ -377,6 +515,10 @@ Max 5× ($100)    = 每個月 3.5 個鐘
 - [Palpable Error in Betting — caanberry](https://caanberry.com/warning-palpable-errors-in-betting/) · [Understanding the risks of arbitrage trading](http://sportsarbitrageguide.com/understanding_the_risks.php)
 - [Matched betting — Wikipedia](https://en.wikipedia.org/wiki/Matched_betting)（免費注轉換率 65–80%）
 - [信用卡迎新優惠比較 2026 — MoneySmart](https://www.moneysmart.hk/zh-hk/credit-cards) · [MoneyHero](https://www.moneyhero.com.hk/zh/credit-card/comparison/best-sign-up-bonus-credit-cards) · [HongKongCard](https://www.hongkongcard.com/welcome-offers)
+- [2026 年最適合打金搬磚賺錢的十大網絡遊戲排行榜 — 搜狐](https://www.sohu.com/a/1029871676_122440107) · [知乎整理](https://zhuanlan.zhihu.com/p/2004145824729408120)
+- [CS2 Skin Arbitrage: Price Gaps Across Youpin, BUFF & More — cs2.sh](https://cs2.sh/arbitrage) · [Best CS2 Skin Markets Compared 2026 — csmarketcap](https://csmarketcap.com/blog/tips-for-beginners/best-cs2-skin-markets-compared-2026-fees-safety-where-to-sell) · [Why the CS2 Skin Market Lost 50% — SkinVS](https://www.skinvs.com/articles/cs2-skin-market-crash-recovery-2026)
+- [Crypto Airdrop Farming: Advanced Sybil Detection Methods](https://crypto-seo.net/articles/crypto-airdrop-farming-how-to/) · [How to Farm Airdrops in 2026 — Zipmex](https://zipmex.com/blog/how-to-farm-airdrops-in-2026/) · [Token Farming: Airdrops, Points & Sybil Wars](https://www.luvkaizen.com/blogs/token-farming-guide)
+- [Axie Infinity 2026: Is It Still Worth Playing — EarnifyHub](https://earnifyhub.com/gaming/axie-infinity-2026-income-review) · [Play-To-Earn: A Study on Scholarship Viability — CoinGecko](https://www.coingecko.com/research/publications/play-to-earn-a-study-on-scholarship-viability)
 - [港元定期存款利率比較 2026 — MoneyHero](https://www.moneyhero.com.hk/zh/banking/blog/time-deposit/hkd) · [StashAway](https://www.stashaway.hk/zh-HK/r/best-hkd-time-deposit-interest-rates-and-offers)
 - [香港非法賭博法律全解析：罰則、執法與避險指南](https://hkcriminallawyers.com/%E9%9D%9E%E6%B3%95%E8%B3%AD%E5%8D%9A/) · [第 148 章《賭博條例》原文](http://www.worldlii.org/chi/hk/legis/ord/148/)
 - [MSO vs VA OTC in Hong Kong: What Crypto Payment Companies Must Know in 2026 — BlockSec](https://blocksec.com/blog/mso-vs-va-otc-in-hong-kong-what-crypto-payment-companies-must-know-in-2026)
